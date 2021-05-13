@@ -1,0 +1,13 @@
+//
+//  Debug.xcconfig
+//  EasyBuy
+//
+//  Created by Andres Felipe Nunez on 13/05/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+CONFIGURATION   = Debug
+BASE_URL        = https:/$()/api.mercadolibre.com
