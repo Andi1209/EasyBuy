@@ -21,11 +21,17 @@ class LauncherInteractor: LauncherBusinessLogic, LauncherDataStore {
     //var name: String = ""
     
     func loadInitialInformation(request: Launcher.LoadInitalData.Request) {
-
-        worker.doSomeWork()
-        
-        let response = Launcher.LoadInitalData.Response()
-        presenter?.presentInitialInformation(response: response)
+        worker.fetchResultsBy(country: "MCO") { (response, result) in
+            switch result {
+            case .success:
+                guard let results = result.value else {
+                    return
+                }
+                print(results)
+            case .failure (let error):
+               break
+            }
+        }
     }
 }
 

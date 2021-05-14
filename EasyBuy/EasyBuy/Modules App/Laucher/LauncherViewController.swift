@@ -6,7 +6,7 @@
 
 import UIKit
 
-protocol LauncherDisplayLogic: class {
+protocol LauncherDisplayLogic: AnyObject {
     func displayInitialInformation(viewModel: Launcher.LoadInitalData.ViewModel)
 }
 
