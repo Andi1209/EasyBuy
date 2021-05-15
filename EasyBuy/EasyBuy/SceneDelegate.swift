@@ -27,7 +27,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 3
         window?.rootViewController = UINavigationController(rootViewController: LauncherViewController())
-        window?.makeKeyAndVisible()    }
+        window?.makeKeyAndVisible()
+        
+        UIApplication.shared.windows.forEach { window in
+            if #available(iOS 13.0, *) {
+                window.overrideUserInterfaceStyle = .light
+            }
+        }
+    }
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

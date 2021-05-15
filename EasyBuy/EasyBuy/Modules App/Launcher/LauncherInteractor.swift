@@ -12,26 +12,17 @@ protocol LauncherBusinessLogic {
 }
 
 protocol LauncherDataStore {
-    //var name: String { get set }
+
 }
 
 class LauncherInteractor: LauncherBusinessLogic, LauncherDataStore {
     var presenter: LauncherPresentationLogic?
     var worker: LauncherWorker = LauncherWorker()
-    //var name: String = ""
+
     
     func loadInitialInformation(request: Launcher.LoadInitalData.Request) {
-        worker.fetchResultsBy(country: "MCO") { (response, result) in
-            switch result {
-            case .success:
-                guard let results = result.value else {
-                    return
-                }
-                print(results)
-            case .failure (let error):
-               break
-            }
-        }
+        let response = Launcher.LoadInitalData.Response()
+        presenter?.presentInitialInformation(response: response)
     }
 }
 

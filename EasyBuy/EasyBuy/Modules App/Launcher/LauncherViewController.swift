@@ -14,7 +14,7 @@ class LauncherViewController: BaseViewController, LauncherDisplayLogic {
     var interactor: LauncherBusinessLogic?
     var router: (NSObjectProtocol & LauncherRoutingLogic & LauncherDataPassing)?
     // MARK: Outlets
-    @IBOutlet weak var text: UILabel!
+    @IBOutlet weak var imageLauncher: UIImageView!
     
     // MARK: var-let
     
@@ -57,6 +57,12 @@ class LauncherViewController: BaseViewController, LauncherDisplayLogic {
         loadInitialInformation()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.setupGradient()
+        imageLauncher.isHidden = false
+    }
+    
     // MARK: Use case
     func loadInitialInformation() {
         let request = Launcher.LoadInitalData.Request()
@@ -65,7 +71,10 @@ class LauncherViewController: BaseViewController, LauncherDisplayLogic {
     
     // MARK: Display
     func displayInitialInformation(viewModel: Launcher.LoadInitalData.ViewModel) {
-        text.text = NSLocalizedString("text", comment: "")
-        //nameTextField.text = viewModel.name
+        let seconds = 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.router?.routeToListToItems()
+        }
+            
     }
 }

@@ -25,4 +25,8 @@ class BaseViewController: UIViewController{
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }

@@ -9,6 +9,7 @@ import Foundation
 
 struct Categorie: Codable {
     let id,name: String?
+    var seleted: Bool = false
 
     
     enum CodingKeys: String, CodingKey {

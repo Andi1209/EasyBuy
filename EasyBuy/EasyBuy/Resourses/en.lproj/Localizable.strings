@@ -6,4 +6,8 @@
   
 */
 ////========================GENERAL TEXT=============================
-"text" = "HELLO IAM";
+
+
+
+////========================ListToItems========================
+"listToItems.label.errorCategorias" = "Categories not available";

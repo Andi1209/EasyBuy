@@ -5,5 +5,9 @@
   Created by Andres Felipe Nunez on 13/05/21.
   
 */
-////======================== TEXTOS GENERALES=============================
-"text" = "HOLA SOY YO";
+////=============================***Textos Generales***==============================////
+
+
+
+////=============================***ListToItems***==================================////
+"listToItems.label.errorCategorias" = "Categorías no disponibles";

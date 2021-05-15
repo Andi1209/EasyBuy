@@ -1,22 +1,22 @@
 //
-//  LauncherRouter.swift
+//  ListToItemsRouter.swift
 //  EasyBuy
 //
-//  Created by Andres Felipe Nunez on 13/05/21.
+//  Created by Andres Felipe Nunez on 14/05/21.
 
 import UIKit
 
-@objc protocol LauncherRoutingLogic {
+@objc protocol ListToItemsRoutingLogic {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol LauncherDataPassing {
-    var dataStore: LauncherDataStore? { get }
+protocol ListToItemsDataPassing {
+    var dataStore: ListToItemsDataStore? { get }
 }
 
-class LauncherRouter: NSObject, LauncherRoutingLogic, LauncherDataPassing {
-    weak var viewController: LauncherViewController?
-    var dataStore: LauncherDataStore?
+class ListToItemsRouter: NSObject, ListToItemsRoutingLogic, ListToItemsDataPassing {
+    weak var viewController: ListToItemsViewController?
+    var dataStore: ListToItemsDataStore?
     
     // MARK: Routing
     
@@ -39,7 +39,7 @@ class LauncherRouter: NSObject, LauncherRoutingLogic, LauncherDataPassing {
     // MARK: Navigation
     
     //func navigateToSomewhere(source:
-    //LauncherViewController, destination:
+    //ListToItemsViewController, destination:
     //SomewhereViewController)
     //{
     //  source.show(destination, sender: nil)
@@ -47,7 +47,7 @@ class LauncherRouter: NSObject, LauncherRoutingLogic, LauncherDataPassing {
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: LauncherDataStore, destination: inout SomewhereDataStore)
+    //func passDataToSomewhere(source: ListToItemsDataStore, destination: inout SomewhereDataStore)
     //{
     //  destination.name = source.name
     //}
