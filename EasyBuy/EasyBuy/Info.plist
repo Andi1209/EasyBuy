@@ -18,8 +18,17 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Configuration</key>
+	<string>$(CONFIGURATION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFProText-Bold.ttf</string>
+		<string>SFProText-Medium.ttf</string>
+		<string>SFProText-Regular.ttf</string>
+		<string>SFProText-Semibold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -45,6 +54,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -58,16 +69,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SFProText-Bold.ttf</string>
-		<string>SFProText-Medium.ttf</string>
-		<string>SFProText-Regular.ttf</string>
-		<string>SFProText-Semibold.ttf</string>
-	</array>
 	<key>baseURL</key>
 	<string>$(BASE_URL)</string>
-	<key>Configuration</key>
-	<string>$(CONFIGURATION)</string>
 </dict>
 </plist>
