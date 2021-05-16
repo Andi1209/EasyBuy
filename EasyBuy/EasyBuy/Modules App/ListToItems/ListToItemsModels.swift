@@ -23,11 +23,14 @@ enum ListToItems {
     enum GetCategorie {
         struct Request {
             var category: String
-            var offset: String
         }
         struct Response {
+            var itemsCodable: [ItemCodable]
+            var areThereMoreItems: Bool
         }
         struct ViewModel {
+            var items:[ItemModel]
+            var areThereMoreItems: Bool
         }
     }
     
@@ -43,3 +46,15 @@ enum ListToItems {
     }
 }
 
+struct ItemCodable {
+    var name:String
+    var price: Double
+    var condition:String
+    var soldQuantity: Int
+    var currencyID: String
+    var installments: Installments?
+    var address:Address?
+    var image:String
+    var shipping:Shipping?
+    var attributes:[Attribute]?
+}

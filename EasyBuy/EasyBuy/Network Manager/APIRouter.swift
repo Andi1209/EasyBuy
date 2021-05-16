@@ -36,9 +36,9 @@ enum APIRouter: URLRequestConvertible{
         case .categories(_):
             return nil
         case .searchItemCat( _, let category,let offset):
-            return ["category":category,"offset":offset,"limit":"40"]
+            return ["category":category,"offset":offset,"limit":"50"]
         case .searchItem(let name, _, let offset):
-            return ["q":name,"offset":offset,"limit":"40"]
+            return ["q":name,"offset":offset,"limit":"50"]
         }
     }
     

@@ -9,14 +9,14 @@ import Foundation
 
 struct NetworkManager {
     
-    static var networkEngine: NetworkEngine = NetworkEngine.shared
+    static weak var networkEngine: NetworkEngine? = NetworkEngine.shared
     static var dataTask: URLSessionDataTask?
     
     static func requestBasicWithURLConvertible(uRLRequestConvertible: URLRequestConvertible,
                                                completion: @escaping(_ http: HTTPURLResponse, _ result: Result<Any>) -> Void) {
         
         NetworkManager.dataTask = nil
-        dataTask = networkEngine.requestGeneric(request: uRLRequestConvertible.asURLRequest()) {(resultData, response, error) in
+        dataTask = networkEngine?.requestGeneric(request: uRLRequestConvertible.asURLRequest()) {(resultData, response, error) in
             NetworkManager.dataTask = nil
             if error != nil {
                 completion(response ?? HTTPURLResponse.init(), Result<Any>.failure(error))
