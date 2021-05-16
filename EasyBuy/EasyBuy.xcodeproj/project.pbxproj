@@ -38,6 +38,9 @@
 		96335FF9264DF0730005992F /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96335FF8264DF0730005992F /* Description.swift */; };
 		96335FFB264DF0880005992F /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96335FFA264DF0880005992F /* Attribute.swift */; };
 		96335FFF264E07E50005992F /* Categorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96335FFE264E07E50005992F /* Categorie.swift */; };
+		9637BD472650258100CC5962 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9637BD452650258100CC5962 /* ItemTableViewCell.swift */; };
+		9637BD482650258100CC5962 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9637BD462650258100CC5962 /* ItemTableViewCell.xib */; };
+		9637BD4B26503E2900CC5962 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9637BD4A26503E2900CC5962 /* ItemModel.swift */; };
 		966767C0264EB3E100B04FC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966767BF264EB3E100B04FC3 /* GoogleService-Info.plist */; };
 		969BD68C264D67EC001BDA5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD68B264D67EC001BDA5D /* AppDelegate.swift */; };
 		969BD68E264D67EC001BDA5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD68D264D67EC001BDA5D /* SceneDelegate.swift */; };
@@ -133,6 +136,9 @@
 		96335FF8264DF0730005992F /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		96335FFA264DF0880005992F /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		96335FFE264E07E50005992F /* Categorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categorie.swift; sourceTree = "<group>"; };
+		9637BD452650258100CC5962 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = ../../../../../../../ItemTableViewCell.swift; sourceTree = "<group>"; };
+		9637BD462650258100CC5962 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ItemTableViewCell.xib; path = ../../../../../../../ItemTableViewCell.xib; sourceTree = "<group>"; };
+		9637BD4A26503E2900CC5962 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemModel.swift; path = ../../../../../../ItemModel.swift; sourceTree = "<group>"; };
 		966767BF264EB3E100B04FC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		969BD688264D67EC001BDA5D /* EasyBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969BD68B264D67EC001BDA5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +288,7 @@
 		96335FE6264DEEA60005992F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9637BD4926503E1100CC5962 /* Model */,
 				96335FE7264DEED50005992F /* Codables */,
 			);
 			path = Entities;
@@ -314,6 +321,23 @@
 				96335FDE264DEC6C0005992F /* NetworkManager.swift */,
 			);
 			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		9637BD442650254D00CC5962 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				9637BD452650258100CC5962 /* ItemTableViewCell.swift */,
+				9637BD462650258100CC5962 /* ItemTableViewCell.xib */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		9637BD4926503E1100CC5962 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9637BD4A26503E2900CC5962 /* ItemModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		969BD67F264D67EC001BDA5D = {
@@ -573,6 +597,7 @@
 		96EB5253264F1350006B2521 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				9637BD442650254D00CC5962 /* TableCells */,
 				96EB5254264F1357006B2521 /* CollectionCell */,
 			);
 			path = Cell;
@@ -684,6 +709,7 @@
 				969BD6DA264D77EE001BDA5D /* Release.xcconfig in Resources */,
 				969BD6DB264D77F2001BDA5D /* QA.xcconfig in Resources */,
 				969BD6ED264D8415001BDA5D /* SFProText-Semibold.ttf in Resources */,
+				9637BD482650258100CC5962 /* ItemTableViewCell.xib in Resources */,
 				969BD695264D67ED001BDA5D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -777,6 +803,7 @@
 				96EB525A264F1572006B2521 /* BodyMediumLabel.swift in Sources */,
 				969BD6CC264D68F3001BDA5D /* LauncherViewController.swift in Sources */,
 				96335FB8264D91EA0005992F /* Colors.swift in Sources */,
+				9637BD4B26503E2900CC5962 /* ItemModel.swift in Sources */,
 				96335FBC264DA0360005992F /* FontExtension.swift in Sources */,
 				96335FD1264DB10A0005992F /* BigBodyRegularBlueLabel.swift in Sources */,
 				96335FE5264DEDD20005992F /* Reachability.swift in Sources */,
@@ -787,6 +814,7 @@
 				96335FCD264DB00B0005992F /* BigSubtitleBoldLabel.swift in Sources */,
 				96EB5240264ED9BD006B2521 /* UIViewExtension.swift in Sources */,
 				969BD6CD264D68F3001BDA5D /* LauncherInteractor.swift in Sources */,
+				9637BD472650258100CC5962 /* ItemTableViewCell.swift in Sources */,
 				96335FDB264DE92B0005992F /* DictionaryExtension.swift in Sources */,
 				969BD6D1264D69FE001BDA5D /* BaseViewController.swift in Sources */,
 				96335FD9264DE7310005992F /* APIRouter.swift in Sources */,

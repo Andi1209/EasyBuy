@@ -13,8 +13,8 @@ protocol BasicNetworkEngineProtocol: AnyObject {
 
 class NetworkEngine: BasicNetworkEngineProtocol {
     
-    let session: URLSession
-    let responseQueue: DispatchQueue?
+    let  session: URLSession
+    let  responseQueue: DispatchQueue?
     
     static let shared =
         NetworkEngine(
