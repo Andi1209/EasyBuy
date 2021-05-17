@@ -11,6 +11,9 @@ protocol ListToItemsDisplayLogic: AnyObject {
     func displayInitialInformationError(viewModel: ListToItems.ErrorCategorias.ViewModel)
     func displayCategoreInformation(viewModel: ListToItems.GetCategorie.ViewModel)
     func displayNextPageItemInformation(viewModel: ListToItems.GetCategorie.ViewModel)
+    func displaygetItemForNameInformation(viewModel: ListToItems.GetItemForName.ViewModel)
+    func displayNextItemForNameInformation(viewModel: ListToItems.GetItemForName.ViewModel)
+    func displayErroItemInformation(viewModel:ServiceError.ErrorGeneral.ViewModel)
 }
 
 class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
@@ -28,6 +31,7 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     private var caregories : [Categorie] = []
     private var items:[ItemModel] = []
     private var categotiCurrent: String = ""
+    private var textCurrent: String = ""
     private var wattingService:Bool = false
     private var areThereMoreItems:Bool = false
     private var isLandscape:Bool = UIDevice.current.orientation.isLandscape
@@ -71,8 +75,6 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillTransitionToSize), name: UIDevice.orientationDidChangeNotification, object: nil)
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        //        view.addGestureRecognizer(tap)
         shearchItemBar.keyboardType = .alphabet
         shearchItemBar.delegate = self
         dontCategoriesLabel.isHidden = true
@@ -108,8 +110,13 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
         if areThereMoreItems {
             if !wattingService {
                 wattingService = true
-                let request = ListToItems.GetCategorie.Request(category: categotiCurrent)
-                interactor?.getNextPageItemInformation(request: request)
+                if categotiCurrent == "" {
+                    let request = ListToItems.GetItemForName.Request(name: self.textCurrent)
+                    interactor?.getNextItemForNameInformation(request: request)
+                }else{
+                    let request = ListToItems.GetCategorie.Request(category: categotiCurrent)
+                    interactor?.getNextPageItemInformation(request: request)
+                }
             }
         }
     }
@@ -144,19 +151,60 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
         listItemsTable.reloadData()
     }
     
+    func displaygetItemForNameInformation(viewModel: ListToItems.GetItemForName.ViewModel) {
+        if items.count > 0 {
+            listItemsTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+        let index = caregories.enumerated().filter({ $0.element.id == categotiCurrent }).map({ $0.offset })
+        if let id = index.first {
+            caregories[id].seleted.toggle()
+        }
+        categotiCurrent = ""
+        self.items = viewModel.items
+        self.areThereMoreItems = viewModel.areThereMoreItems
+        categoriesColllection.reloadData()
+        listItemsTable.reloadData()
+    }
+    
+    
+    func displayNextItemForNameInformation(viewModel: ListToItems.GetItemForName.ViewModel) {
+        for item in viewModel.items {
+            self.items.append(item)
+        }
+        wattingService = false
+        self.areThereMoreItems = viewModel.areThereMoreItems
+        listItemsTable.reloadData()
+    }
+    
+    
+    func displayErroItemInformation(viewModel: ServiceError.ErrorGeneral.ViewModel) {
+        wattingService = false
+        let alert = AlertViewController(text: viewModel.errorMesage)
+        alert.modalPresentationStyle = .overFullScreen
+        self.present(alert, animated: false, completion: nil)
+    }
     
     
     
 }
 
-// MARK: SearchBar
+ //MARK: SearchBar
 extension ListToItemsViewController:UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        dismissKeyboard()
+        guard let size = searchBar.text?.count else {
+            return
+        }
+        if size > 3 {
+            guard let text = searchBar.text else {
+                return
+            }
+            self.textCurrent = text
+            let request = ListToItems.GetItemForName.Request(name: text)
+            interactor?.getItemForNameInformation(request: request)
+            dismissKeyboard()
+        }
+
     }
-    
-    
 }
 
 
@@ -177,6 +225,7 @@ extension ListToItemsViewController : UICollectionViewDelegate {
         if items.count > 0 {
             listItemsTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
+        dismissKeyboard()
         let request = ListToItems.GetCategorie.Request(category: id)
         interactor?.getCategoreInformation(request: request)
     }

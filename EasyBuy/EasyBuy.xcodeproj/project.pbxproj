@@ -42,6 +42,15 @@
 		9637BD482650258100CC5962 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9637BD462650258100CC5962 /* ItemTableViewCell.xib */; };
 		9637BD4B26503E2900CC5962 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9637BD4A26503E2900CC5962 /* ItemModel.swift */; };
 		966767C0264EB3E100B04FC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966767BF264EB3E100B04FC3 /* GoogleService-Info.plist */; };
+		968CE62B2651C576002D9973 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE62A2651C576002D9973 /* ErrorExtension.swift */; };
+		968CE62F2651C94A002D9973 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE62D2651C94A002D9973 /* AlertViewController.swift */; };
+		968CE6302651C94A002D9973 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968CE62E2651C94A002D9973 /* AlertViewController.xib */; };
+		968CE6332651D714002D9973 /* ButtonAlertAccept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE6322651D714002D9973 /* ButtonAlertAccept.swift */; };
+		968CE6392651E347002D9973 /* ListToItemsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE6352651E347002D9973 /* ListToItemsViewControllerTests.swift */; };
+		968CE63A2651E347002D9973 /* ListToItemsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE6362651E347002D9973 /* ListToItemsInteractorTests.swift */; };
+		968CE63B2651E347002D9973 /* ListToItemsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE6372651E347002D9973 /* ListToItemsWorkerTests.swift */; };
+		968CE63C2651E347002D9973 /* ListToItemsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE6382651E347002D9973 /* ListToItemsPresenterTests.swift */; };
+		968CE63E2651EBD7002D9973 /* ItemsResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 968CE63D2651EBD7002D9973 /* ItemsResult.json */; };
 		969BD68C264D67EC001BDA5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD68B264D67EC001BDA5D /* AppDelegate.swift */; };
 		969BD68E264D67EC001BDA5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD68D264D67EC001BDA5D /* SceneDelegate.swift */; };
 		969BD695264D67ED001BDA5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 969BD694264D67ED001BDA5D /* Assets.xcassets */; };
@@ -140,6 +149,15 @@
 		9637BD462650258100CC5962 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ItemTableViewCell.xib; path = ../../../../../../../ItemTableViewCell.xib; sourceTree = "<group>"; };
 		9637BD4A26503E2900CC5962 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemModel.swift; path = ../../../../../../ItemModel.swift; sourceTree = "<group>"; };
 		966767BF264EB3E100B04FC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		968CE62A2651C576002D9973 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
+		968CE62D2651C94A002D9973 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		968CE62E2651C94A002D9973 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		968CE6322651D714002D9973 /* ButtonAlertAccept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAlertAccept.swift; sourceTree = "<group>"; };
+		968CE6352651E347002D9973 /* ListToItemsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToItemsViewControllerTests.swift; sourceTree = "<group>"; };
+		968CE6362651E347002D9973 /* ListToItemsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToItemsInteractorTests.swift; sourceTree = "<group>"; };
+		968CE6372651E347002D9973 /* ListToItemsWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToItemsWorkerTests.swift; sourceTree = "<group>"; };
+		968CE6382651E347002D9973 /* ListToItemsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToItemsPresenterTests.swift; sourceTree = "<group>"; };
+		968CE63D2651EBD7002D9973 /* ItemsResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ItemsResult.json; sourceTree = "<group>"; };
 		969BD688264D67EC001BDA5D /* EasyBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969BD68B264D67EC001BDA5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		969BD68D264D67EC001BDA5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +265,7 @@
 				96335FBB264DA0360005992F /* FontExtension.swift */,
 				96335FDA264DE92B0005992F /* DictionaryExtension.swift */,
 				96EB523F264ED9BD006B2521 /* UIViewExtension.swift */,
+				968CE62A2651C576002D9973 /* ErrorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +359,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		968CE62C2651C935002D9973 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				968CE62D2651C94A002D9973 /* AlertViewController.swift */,
+				968CE62E2651C94A002D9973 /* AlertViewController.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		968CE6312651D6F3002D9973 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				968CE6322651D714002D9973 /* ButtonAlertAccept.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		968CE6342651E338002D9973 /* ListToItems */ = {
+			isa = PBXGroup;
+			children = (
+				968CE6352651E347002D9973 /* ListToItemsViewControllerTests.swift */,
+				968CE6362651E347002D9973 /* ListToItemsInteractorTests.swift */,
+				968CE6372651E347002D9973 /* ListToItemsWorkerTests.swift */,
+				968CE6382651E347002D9973 /* ListToItemsPresenterTests.swift */,
+			);
+			path = ListToItems;
+			sourceTree = "<group>";
+		};
 		969BD67F264D67EC001BDA5D = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +463,8 @@
 		969BD6BD264D6855001BDA5D /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				968CE6312651D6F3002D9973 /* Button */,
+				968CE62C2651C935002D9973 /* Alert */,
 				96EB5253264F1350006B2521 /* Cell */,
 				96335FBD264DA36D0005992F /* Labels */,
 				969BD6CF264D69E6001BDA5D /* View Controllers */,
@@ -540,6 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				96EB5222264ED34D006B2521 /* Categories.json */,
+				968CE63D2651EBD7002D9973 /* ItemsResult.json */,
 			);
 			path = JsonObjects;
 			sourceTree = "<group>";
@@ -564,6 +614,7 @@
 		96EB522D264ED673006B2521 /* Module App */ = {
 			isa = PBXGroup;
 			children = (
+				968CE6342651E338002D9973 /* ListToItems */,
 				96EB522E264ED678006B2521 /* Launcher */,
 			);
 			path = "Module App";
@@ -711,6 +762,7 @@
 				969BD6ED264D8415001BDA5D /* SFProText-Semibold.ttf in Resources */,
 				9637BD482650258100CC5962 /* ItemTableViewCell.xib in Resources */,
 				969BD695264D67ED001BDA5D /* Assets.xcassets in Resources */,
+				968CE6302651C94A002D9973 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +770,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968CE63E2651EBD7002D9973 /* ItemsResult.json in Resources */,
 				96EB5223264ED34D006B2521 /* Categories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -814,6 +867,7 @@
 				96335FCD264DB00B0005992F /* BigSubtitleBoldLabel.swift in Sources */,
 				96EB5240264ED9BD006B2521 /* UIViewExtension.swift in Sources */,
 				969BD6CD264D68F3001BDA5D /* LauncherInteractor.swift in Sources */,
+				968CE62B2651C576002D9973 /* ErrorExtension.swift in Sources */,
 				9637BD472650258100CC5962 /* ItemTableViewCell.swift in Sources */,
 				96335FDB264DE92B0005992F /* DictionaryExtension.swift in Sources */,
 				969BD6D1264D69FE001BDA5D /* BaseViewController.swift in Sources */,
@@ -825,6 +879,7 @@
 				96EB524E264EE27D006B2521 /* ListToItemsInteractor.swift in Sources */,
 				96EB520E264EBA5C006B2521 /* Log.swift in Sources */,
 				96EB525C264F387C006B2521 /* ErrorGeneral.swift in Sources */,
+				968CE6332651D714002D9973 /* ButtonAlertAccept.swift in Sources */,
 				96335FED264DEF740005992F /* Item.swift in Sources */,
 				96335FCF264DB0940005992F /* BigBodyRegularGreenLabel.swift in Sources */,
 				96335FFB264DF0880005992F /* Attribute.swift in Sources */,
@@ -835,6 +890,7 @@
 				96EB524C264EE27D006B2521 /* ListToItemsModels.swift in Sources */,
 				96EB524A264EE27D006B2521 /* ListToItemsWorker.swift in Sources */,
 				96335FE2264DECF50005992F /* CustomErrors.swift in Sources */,
+				968CE62F2651C94A002D9973 /* AlertViewController.swift in Sources */,
 				96335FF5264DF0360005992F /* Shipping.swift in Sources */,
 				96335FDD264DEC320005992F /* NetworkEngine.swift in Sources */,
 				96335FD3264DB2A00005992F /* SubtitleMediumLabel.swift in Sources */,
@@ -856,9 +912,13 @@
 			files = (
 				96EB523C264ED704006B2521 /* LauncherInteractorTests.swift in Sources */,
 				96EB521A264ED1F4006B2521 /* Seeds.swift in Sources */,
+				968CE6392651E347002D9973 /* ListToItemsViewControllerTests.swift in Sources */,
 				96EB521F264ED2D4006B2521 /* Data+JSONFile.swift in Sources */,
+				968CE63A2651E347002D9973 /* ListToItemsInteractorTests.swift in Sources */,
+				968CE63B2651E347002D9973 /* ListToItemsWorkerTests.swift in Sources */,
 				96EB522C264ED496006B2521 /* NetworkManagerTest.swift in Sources */,
 				96EB5227264ED3AE006B2521 /* MockURLSessionDataTask.swift in Sources */,
+				968CE63C2651E347002D9973 /* ListToItemsPresenterTests.swift in Sources */,
 				96EB523D264ED704006B2521 /* LauncherWorkerTests.swift in Sources */,
 				96EB523E264ED704006B2521 /* LauncherPresenterTests.swift in Sources */,
 				96EB523B264ED704006B2521 /* LauncherViewControllerTests.swift in Sources */,

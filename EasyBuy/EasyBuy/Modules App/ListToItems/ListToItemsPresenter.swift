@@ -12,6 +12,9 @@ protocol ListToItemsPresentationLogic {
     func presentInitialInformationError(response: ListToItems.ErrorCategorias.Response)
     func presentCategoreInformation(response: ListToItems.GetCategorie.Response)
     func presentgetNextPageItemInformation(response: ListToItems.GetCategorie.Response)
+    func presentgetItemForNameInformation(response: ListToItems.GetItemForName.Response)
+    func presentgetNextItemForNameInformation(response: ListToItems.GetItemForName.Response)
+    func presentErroItemInformation(response:ServiceError.ErrorGeneral.Response)
 }
 
 class ListToItemsPresenter: ListToItemsPresentationLogic {
@@ -40,6 +43,24 @@ class ListToItemsPresenter: ListToItemsPresentationLogic {
         let viewModel = ListToItems.GetCategorie.ViewModel(items: itemsModel, areThereMoreItems: response.areThereMoreItems)
         viewController?.displayNextPageItemInformation(viewModel:viewModel)
     }
+    
+    func presentgetItemForNameInformation(response: ListToItems.GetItemForName.Response) {
+        let itemsModel:[ItemModel] = getItemsModel(itemsCodable: response.itemsCodable)
+        let viewModel = ListToItems.GetItemForName.ViewModel(items: itemsModel, areThereMoreItems: response.areThereMoreItems)
+        viewController?.displaygetItemForNameInformation(viewModel:viewModel)
+    }
+    
+    func presentgetNextItemForNameInformation(response: ListToItems.GetItemForName.Response) {
+        let itemsModel:[ItemModel] = getItemsModel(itemsCodable: response.itemsCodable)
+        let viewModel = ListToItems.GetItemForName.ViewModel(items: itemsModel, areThereMoreItems: response.areThereMoreItems)
+        viewController?.displayNextItemForNameInformation(viewModel: viewModel)
+    }
+    
+    func presentErroItemInformation(response: ServiceError.ErrorGeneral.Response) {
+        let viewModel = ServiceError.ErrorGeneral.ViewModel(errorMesage: response.error.getErrorMessage(), error: response.error)
+        viewController?.displayErroItemInformation(viewModel: viewModel)
+    }
+    
     
     
     func getItemsModel(itemsCodable: [ItemCodable])->[ItemModel]{

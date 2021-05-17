@@ -38,7 +38,7 @@ class LauncherWorkerTests: XCTestCase{
     
     func testSomething(){
         // Given
-        
+        sut.doSomeWork()
         // When
         
         // Then

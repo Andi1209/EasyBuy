@@ -7,31 +7,26 @@
 
 import Foundation
 
-let kErrorGeneralResponse = 8000
-let kErrorNetworkConection = 8001
-let KErrorOutOfRange = 8002
-let KEnoDataFound = 8004
+let kErrorGeneralResponse = 1000
+let kErrorNetworkConection = 1001
+let KEnoDataFound = 1002
 
 
 struct CustomErrors {
-     static let errorGeneralResponse = NSError(domain: "8000",
+     static let errorGeneralResponse = NSError(domain: "1000",
                                        code: kErrorGeneralResponse,
                                        userInfo: ["message":
-                                        NSLocalizedString("errorMessage.GeneralResponse",
+                                        NSLocalizedString("service.error.errorGeneralResponse",
                                                           comment: "")])
 
-    static let errorNetworkConection = NSError(domain: "8001",
+    static let errorNetworkConection = NSError(domain: "1001",
                                               code: kErrorNetworkConection,
                                               userInfo: ["message":
-                                                NSLocalizedString("errorMessage.NetworkConexion",
+                                                NSLocalizedString("service.error.errorNetworkConexion",
                                                                   comment: "")])
-    static let errorOffsetOutOffRange = NSError(domain: "8002",
-                                                code: KErrorOutOfRange,
-                                                userInfo: ["message":NSLocalizedString("errorMessage.GeneralResponse",
-                                                                                       comment: "")])
-    static let errorNoData = NSError(domain: "8002",
+    static let errorNoData = NSError(domain: "1002",
                                                 code: KEnoDataFound,
-                                                userInfo: ["message":NSLocalizedString("errorMessage.NoData",
+                                                userInfo: ["message":NSLocalizedString("service.error.noData",
                                                                                        comment: "")])
     
 }
