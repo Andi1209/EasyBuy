@@ -13,6 +13,11 @@
 "listToItems.label.errorCategorias" = "Categories not available";
 
 
+////========================ItemDetail========================///////
+"itemDetail.label.headerSellerInformation" = "Information about the seller";
+"itemDetail.label.headerFeatureInformation" = "Features";
+
+
 
 
 ////========================Error Service=============================////////

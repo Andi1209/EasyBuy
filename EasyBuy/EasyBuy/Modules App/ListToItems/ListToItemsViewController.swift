@@ -56,6 +56,14 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
         setup()
     }
     
+    override func viewDidLayoutSubviews() {
+            if UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height {
+                isLandscape = false
+            } else {
+                isLandscape = true
+            }
+        }
+    
     // MARK: Setup
     private func setup() {
         let viewController = self

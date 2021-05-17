@@ -19,7 +19,8 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     
     
     // MARK: var-let
-    let tableItemDetail = TableItemDetail()
+    private let tableItemDetail = TableItemDetail()
+    private var isLandscape:Bool = UIDevice.current.orientation.isLandscape
     
     // MARK: Actions button
     
@@ -40,6 +41,7 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     }
     
     deinit {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         print("ItemDetailViewController + deinit")
     }
     
@@ -62,10 +64,22 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitleLabelNavigationBar(title:  NSLocalizedString("barTitle.label.itemdetail", comment: ""), colortext: UIColor.black)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillTransitionToSize), name: UIDevice.orientationDidChangeNotification, object: nil)
         loadInitialInformation()
     }
     
+    
+    @objc func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if size.height == 0.0 {
+            if UIDevice.current.orientation.isLandscape  {
+                isLandscape = true
+            } else {
+                isLandscape = false
+            }
+            tableItemDetail.isLandscape = isLandscape
+            tableDetailItem.reloadData()
+        }
+    }
     
     // MARK: Use case
     func loadInitialInformation() {
@@ -77,7 +91,12 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     func displayInitialInformation(viewModel: ItemDetail.LoadInitalData.ViewModel) {
         tableItemDetail.isLandscape = false
         tableItemDetail.item = viewModel.item
-        tableDetailItem.register(UINib(nibName: ItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ItemTableViewCell.identifier)
+        tableItemDetail.headerSellerInformation = viewModel.headerSellerInformation
+        tableItemDetail.headerFeatureInformation = viewModel.headerFeatureInformation
+        tableDetailItem.register(UINib(nibName: InformationItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: InformationItemTableViewCell.identifier)
+        tableDetailItem.register(UINib(nibName: HeaderInformationItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: HeaderInformationItemTableViewCell.identifier)
+        tableDetailItem.register(UINib(nibName: OnlyTextInformationTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: OnlyTextInformationTableViewCell.identifier)
+        tableDetailItem.register(UINib(nibName: TwoTextInformationTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TwoTextInformationTableViewCell.identifier)
         tableDetailItem.delegate = tableItemDetail
         tableDetailItem.dataSource = tableItemDetail
         tableDetailItem.reloadData()

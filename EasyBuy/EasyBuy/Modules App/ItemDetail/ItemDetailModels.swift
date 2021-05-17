@@ -18,6 +18,8 @@ enum ItemDetail {
         }
         struct ViewModel {
             var item:ItemModel
+            var headerSellerInformation:String
+            var headerFeatureInformation:String
         }
     }
 }

@@ -11,6 +11,7 @@ class ItemModel {
     
     var name:String
     var condition:Bool
+    var soldQuantity: Int
     var price:String
     var currency:String
     var installments:String
@@ -20,9 +21,10 @@ class ItemModel {
     var attributes:[AttributesModel]
 
     
-    init(name:String, condition:Bool, price:String, currency:String, installments:String, address:String, image:String,freeShipping:Bool,attributes: [AttributesModel]) {
+    init(name:String, condition:Bool, soldQuantity: Int,price:String, currency:String, installments:String, address:String, image:String,freeShipping:Bool,attributes: [AttributesModel]) {
         self.name = name
         self.condition = condition
+        self.soldQuantity = soldQuantity
         self.price = price
         self.currency = currency
         self.installments = installments

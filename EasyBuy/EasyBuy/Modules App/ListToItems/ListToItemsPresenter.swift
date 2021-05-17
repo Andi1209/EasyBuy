@@ -75,6 +75,7 @@ class ListToItemsPresenter: ListToItemsPresentationLogic {
             
             let itemModel = ItemModel(name: item.name,
                                       condition: condition,
+                                      soldQuantity: item.soldQuantity,
                                       price: "\(item.price)",
                                       currency: item.currencyID,
                                       installments: installments,
