@@ -74,6 +74,7 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setEnableNavigationbar(type: .none)
         NotificationCenter.default.addObserver(self, selector: #selector(viewWillTransitionToSize), name: UIDevice.orientationDidChangeNotification, object: nil)
         shearchItemBar.keyboardType = .alphabet
         shearchItemBar.delegate = self
@@ -277,7 +278,6 @@ extension ListToItemsViewController : UITableViewDelegate {
                 self.getNextPageItem()
             }
         }
-        
     }
     
 }
@@ -301,7 +301,11 @@ extension ListToItemsViewController : UITableViewDataSource {
         }else{
             return tableView.frame.height * 0.27
         }
-           
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.item = self.items[indexPath.row]
+        router?.routeToDetalleToItem()
     }
     
 }
