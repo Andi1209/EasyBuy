@@ -15,12 +15,18 @@ class BasicNetworkEngineTest: NetworkEngine{
       return URL(string: "/token")!
     }
     
+    var getUrlShearCategoria: URL {
+      return URL(string: "/uRLSearchItemCat")!
+    }
+    
     var response = HTTPURLResponse(url: URL(string: "/token")!,
                                    statusCode: 200,
                                    httpVersion: nil,
                                    headerFields: nil)
     
     var nameMockArchive:String = ""
+    var uRLSearchItemCatpath = "ItemsResult"
+
     
     override func requestGeneric(request: URLRequest, completion: @escaping (Data?, HTTPURLResponse?, NSError?) -> Void) -> URLSessionDataTask {
        
@@ -28,7 +34,7 @@ class BasicNetworkEngineTest: NetworkEngine{
         do {
             // Se genera una URL session Mock para retornar
             let mock = MockURLSessionDataTask(completionHandler: { (data, _, _) in }, url: URLRequest.init(url: getUrl), queue: nil)
-            
+            getFile()
             switch response?.statusCode {
             case 200:
                 let data = try Data.fromJSON(fileName: nameMockArchive)
@@ -56,6 +62,17 @@ class BasicNetworkEngineTest: NetworkEngine{
                 completion(nil,nil,nil)
             }
             return mock
+        }
+    }
+    
+    func getFile(){
+        let urlText = response?.url?.absoluteString
+        
+        switch urlText {
+        case "/uRLSearchItemCat":
+            nameMockArchive = uRLSearchItemCatpath
+        default:
+            nameMockArchive = ""
         }
     }
      

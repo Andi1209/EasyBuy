@@ -12,7 +12,7 @@
                 <outlet property="categoriesColllection" destination="W9d-q8-KGt" id="n8K-rZ-9tR"/>
                 <outlet property="dontCategoriesLabel" destination="Ich-0d-igr" id="B82-Dn-puv"/>
                 <outlet property="listItemsTable" destination="BT2-Id-CBc" id="wgk-fp-uHd"/>
-                <outlet property="shearchItemBar" destination="YNm-5P-2QM" id="GAR-g1-BcB"/>
+                <outlet property="shearchItemBar" destination="YNm-5P-2QM" id="pF1-Ym-9Co"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="Eli-mb-izk"/>
             </connections>
         </placeholder>
@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YNm-5P-2QM">
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YNm-5P-2QM" customClass="SearchBar" customModule="EasyBuy" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="428" height="51"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>

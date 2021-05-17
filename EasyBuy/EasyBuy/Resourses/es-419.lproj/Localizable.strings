@@ -11,3 +11,9 @@
 
 ////=============================***ListToItems***==================================////
 "listToItems.label.errorCategorias" = "Categorías no disponibles";
+
+
+////========================Error Service=============================////////
+"service.error.errorGeneralResponse" = "Tu solicitud no pudo ser procesada.\n\nIntenta más tarde.";
+"service.error.errorNetworkConexion" = "Verifica tu conexión a internet e intenta nuevamente.";
+"service.error.noData" = "No se encontraron items, intenta nuevamente.";

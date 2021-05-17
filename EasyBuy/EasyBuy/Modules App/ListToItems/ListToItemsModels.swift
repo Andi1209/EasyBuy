@@ -34,6 +34,20 @@ enum ListToItems {
         }
     }
     
+    enum GetItemForName {
+        struct Request {
+            var name: String
+        }
+        struct Response {
+            var itemsCodable: [ItemCodable]
+            var areThereMoreItems: Bool
+        }
+        struct ViewModel {
+            var items:[ItemModel]
+            var areThereMoreItems: Bool
+        }
+    }
+    
     
     enum ErrorCategorias {
         struct Request {

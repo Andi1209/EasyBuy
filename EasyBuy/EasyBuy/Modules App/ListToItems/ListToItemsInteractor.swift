@@ -11,6 +11,8 @@ protocol ListToItemsBusinessLogic {
     func loadInitialInformation(request: ListToItems.LoadInitalData.Request)
     func getCategoreInformation(request: ListToItems.GetCategorie.Request)
     func getNextPageItemInformation(request: ListToItems.GetCategorie.Request)
+    func getItemForNameInformation(request: ListToItems.GetItemForName.Request)
+    func getNextItemForNameInformation(request: ListToItems.GetItemForName.Request)
 }
 
 protocol ListToItemsDataStore {
@@ -42,9 +44,7 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
     }
     
     func getCategoreInformation(request: ListToItems.GetCategorie.Request) {
-        offset = 0
-        self.totalItemsGet = 0
-        self.currencyTotalItems = 0
+        configInitialParametrs()
         worker.fetchCategorieForID(country: "MCO", category: request.category, offset: "\(offset)") { (response, result) in
             switch result {
             case .success:
@@ -55,15 +55,20 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
                 guard let items = results.items else {
                     return
                 }
-                
-                let itemCodables: [ItemCodable] = self.returnItemCodable(items: items)
-                self.totalItemsGet = results.paging?.total ?? 0
-                self.currencyTotalItems = itemCodables.count
-                let response = ListToItems.GetCategorie.Response(itemsCodable: itemCodables, areThereMoreItems: true)
-                self.presenter?.presentCategoreInformation(response: response)
-            case .failure (_):
-                let response = ListToItems.ErrorCategorias.Response()
-                self.presenter?.presentInitialInformationError(response: response)
+                if items.count > 0 {
+                    let itemCodables: [ItemCodable] = self.returnItemCodable(items: items)
+                    self.totalItemsGet = results.paging?.total ?? 0
+                    self.currencyTotalItems = itemCodables.count
+                    let areThereMoreItems = self.areThereMoreItems(totalItems: self.totalItemsGet, curretItems: self.currencyTotalItems)
+                    let response = ListToItems.GetCategorie.Response(itemsCodable: itemCodables, areThereMoreItems: areThereMoreItems)
+                    self.presenter?.presentCategoreInformation(response: response)
+                }else{
+                    let response = ServiceError.ErrorGeneral.Response(error: CustomErrors.errorNoData)
+                    self.presenter?.presentErroItemInformation(response: response)
+                }
+            case .failure (let error):
+                let response = ServiceError.ErrorGeneral.Response(error: error ?? CustomErrors.errorGeneralResponse)
+                self.presenter?.presentErroItemInformation(response: response)
             }
         }
     }
@@ -81,20 +86,89 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
                 guard let items = results.items else {
                     return
                 }
+                if items.count > 0 {
+                    let itemCodables: [ItemCodable] = self.returnItemCodable(items: items)
+                    self.currencyTotalItems += itemCodables.count
+                    let areThereMoreItems = self.areThereMoreItems(totalItems: self.totalItemsGet, curretItems: self.currencyTotalItems)
+                    let response = ListToItems.GetCategorie.Response(itemsCodable: itemCodables,areThereMoreItems: areThereMoreItems)
+                    self.presenter?.presentgetNextPageItemInformation(response: response)
+                }else{
+                    let response = ServiceError.ErrorGeneral.Response(error: CustomErrors.errorNoData)
+                    self.presenter?.presentErroItemInformation(response: response)
+                }
+            case .failure (let error):
+                let response = ServiceError.ErrorGeneral.Response(error: error ?? CustomErrors.errorGeneralResponse)
+                self.presenter?.presentErroItemInformation(response: response)
+            }
+        }
+    }
+    
+    func getItemForNameInformation(request: ListToItems.GetItemForName.Request) {
+        configInitialParametrs()
+        worker.fetchItemForName(country: "MCO", name: request.name, offset: "\(offset)") { (response, result) in
+            switch result {
+            case .success:
+                guard let results = result.value else {
+                    return
+                }
                 
-                let itemCodables: [ItemCodable] = self.returnItemCodable(items: items)
-                self.currencyTotalItems += itemCodables.count
-                let areThereMoreItems = self.areThereMoreItems(totalItems: self.totalItemsGet, curretItems: self.currencyTotalItems)
-                let response = ListToItems.GetCategorie.Response(itemsCodable: itemCodables,areThereMoreItems: areThereMoreItems)
-                self.presenter?.presentgetNextPageItemInformation(response: response)
-            case .failure (_):
-                let response = ListToItems.ErrorCategorias.Response()
-                self.presenter?.presentInitialInformationError(response: response)
+                guard let items = results.items else {
+                    return
+                }
+                if items.count > 0 {
+                    let itemCodables: [ItemCodable] = self.returnItemCodable(items: items)
+                    self.totalItemsGet = results.paging?.total ?? 0
+                    self.currencyTotalItems = itemCodables.count
+                    let areThereMoreItems = self.areThereMoreItems(totalItems: self.totalItemsGet, curretItems: self.currencyTotalItems)
+                    let response = ListToItems.GetItemForName.Response(itemsCodable: itemCodables, areThereMoreItems: areThereMoreItems)
+                    self.presenter?.presentgetItemForNameInformation(response: response)
+                }else{
+                    let response = ServiceError.ErrorGeneral.Response(error: CustomErrors.errorNoData)
+                    self.presenter?.presentErroItemInformation(response: response)
+                }
+            case .failure (let error):
+                let response = ServiceError.ErrorGeneral.Response(error: error ?? CustomErrors.errorGeneralResponse)
+                self.presenter?.presentErroItemInformation(response: response)
+            }
+        }
+    }
+    
+    func getNextItemForNameInformation(request: ListToItems.GetItemForName.Request) {
+        offset += 1
+        worker.fetchItemForName(country: "MCO", name: request.name, offset: "\(offset)") { (response, result) in
+            switch result {
+            case .success:
+                guard let results = result.value else {
+                    return
+                }
+                
+                guard let items = results.items else {
+                    return
+                }
+                if items.count > 0 {
+                    let itemCodables: [ItemCodable] = self.returnItemCodable(items: items)
+                    self.currencyTotalItems += itemCodables.count
+                    let areThereMoreItems = self.areThereMoreItems(totalItems: self.totalItemsGet, curretItems: self.currencyTotalItems)
+                    let response = ListToItems.GetItemForName.Response(itemsCodable: itemCodables, areThereMoreItems: areThereMoreItems)
+                    self.presenter?.presentgetNextItemForNameInformation(response: response)
+                }else{
+                    let response = ServiceError.ErrorGeneral.Response(error: CustomErrors.errorNoData)
+                    self.presenter?.presentErroItemInformation(response: response)
+                }
+            case .failure (let error):
+                let response = ServiceError.ErrorGeneral.Response(error: error ?? CustomErrors.errorGeneralResponse)
+                self.presenter?.presentErroItemInformation(response: response)
             }
         }
     }
     
     
+    
+    func configInitialParametrs(){
+        offset = 0
+        self.totalItemsGet = 0
+        self.currencyTotalItems = 0
+    }
     
     
     func returnItemCodable(items:[Item])->[ItemCodable]{
