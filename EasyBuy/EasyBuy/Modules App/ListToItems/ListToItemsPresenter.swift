@@ -76,7 +76,7 @@ class ListToItemsPresenter: ListToItemsPresentationLogic {
             let itemModel = ItemModel(name: item.name,
                                       condition: condition,
                                       soldQuantity: item.soldQuantity,
-                                      price: "\(item.price)",
+                                      price: getCurrency(currencyID: item.currencyID) + item.price.getPriceFormat(),
                                       currency: item.currencyID,
                                       installments: installments,
                                       address: address,
@@ -129,6 +129,16 @@ class ListToItemsPresenter: ListToItemsPresentationLogic {
           return attributesModel
     }
     
+    
+    func getCurrency(currencyID:String)->String{
+        switch currencyID {
+        case "COP":
+            return "$ "
+        default:
+            return ""
+        }
+       
+    }
     
 }
 

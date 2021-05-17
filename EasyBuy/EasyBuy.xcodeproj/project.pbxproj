@@ -46,6 +46,8 @@
 		96770591265308F600F9C9D2 /* TwoTextInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677058F265308F600F9C9D2 /* TwoTextInformationTableViewCell.swift */; };
 		96770592265308F600F9C9D2 /* TwoTextInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96770590265308F600F9C9D2 /* TwoTextInformationTableViewCell.xib */; };
 		96770594265309D000F9C9D2 /* BodyBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96770593265309D000F9C9D2 /* BodyBoldLabel.swift */; };
+		9677059726531EC900F9C9D2 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677059626531EC900F9C9D2 /* ImageViewExtension.swift */; };
+		967705992653219900F9C9D2 /* DobleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967705982653219900F9C9D2 /* DobleExtension.swift */; };
 		968CE62B2651C576002D9973 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE62A2651C576002D9973 /* ErrorExtension.swift */; };
 		968CE62F2651C94A002D9973 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE62D2651C94A002D9973 /* AlertViewController.swift */; };
 		968CE6302651C94A002D9973 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968CE62E2651C94A002D9973 /* AlertViewController.xib */; };
@@ -170,6 +172,8 @@
 		9677058F265308F600F9C9D2 /* TwoTextInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTextInformationTableViewCell.swift; sourceTree = "<group>"; };
 		96770590265308F600F9C9D2 /* TwoTextInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoTextInformationTableViewCell.xib; sourceTree = "<group>"; };
 		96770593265309D000F9C9D2 /* BodyBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyBoldLabel.swift; sourceTree = "<group>"; };
+		9677059626531EC900F9C9D2 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		967705982653219900F9C9D2 /* DobleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DobleExtension.swift; sourceTree = "<group>"; };
 		968CE62A2651C576002D9973 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		968CE62D2651C94A002D9973 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		968CE62E2651C94A002D9973 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
@@ -300,6 +304,8 @@
 				96335FDA264DE92B0005992F /* DictionaryExtension.swift */,
 				96EB523F264ED9BD006B2521 /* UIViewExtension.swift */,
 				968CE62A2651C576002D9973 /* ErrorExtension.swift */,
+				9677059626531EC900F9C9D2 /* ImageViewExtension.swift */,
+				967705982653219900F9C9D2 /* DobleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -985,6 +991,7 @@
 				96EB525A264F1572006B2521 /* BodyMediumLabel.swift in Sources */,
 				969BD6CC264D68F3001BDA5D /* LauncherViewController.swift in Sources */,
 				96335FB8264D91EA0005992F /* Colors.swift in Sources */,
+				967705992653219900F9C9D2 /* DobleExtension.swift in Sources */,
 				96335FBC264DA0360005992F /* FontExtension.swift in Sources */,
 				96335FD1264DB10A0005992F /* BigBodyRegularBlueLabel.swift in Sources */,
 				96335FE5264DEDD20005992F /* Reachability.swift in Sources */,
@@ -996,6 +1003,7 @@
 				96335FCD264DB00B0005992F /* BigSubtitleBoldLabel.swift in Sources */,
 				96EB5240264ED9BD006B2521 /* UIViewExtension.swift in Sources */,
 				969BD6CD264D68F3001BDA5D /* LauncherInteractor.swift in Sources */,
+				9677059726531EC900F9C9D2 /* ImageViewExtension.swift in Sources */,
 				968CE62B2651C576002D9973 /* ErrorExtension.swift in Sources */,
 				96770594265309D000F9C9D2 /* BodyBoldLabel.swift in Sources */,
 				96335FDB264DE92B0005992F /* DictionaryExtension.swift in Sources */,

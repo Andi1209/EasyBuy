@@ -20,7 +20,7 @@ class TwoTextInformationTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.selectionStyle = .none
-        self.backgroundColor = UIColor.white
+        self.contentView.backgroundColor = UIColor.white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

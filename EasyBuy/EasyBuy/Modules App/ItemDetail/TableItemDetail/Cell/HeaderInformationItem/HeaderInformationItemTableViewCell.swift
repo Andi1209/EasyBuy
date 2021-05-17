@@ -19,7 +19,7 @@ class HeaderInformationItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        self.backgroundColor = UIColor.grayApp
+        self.contentView.backgroundColor = UIColor.grayApp
         // Initialization code
     }
 

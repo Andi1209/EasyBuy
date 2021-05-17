@@ -34,6 +34,7 @@ class InformationItemTableViewCell: UITableViewCell {
     
     func setCell(item:ItemModel){
         imageStatusNewPeoduct.isHidden = item.condition
+        imageStatusNewPeoduct.setImageColor(color: UIColor.blueApp)
         imageFreeDelivery.isHidden = item.freeShipping
         imageItem.sd_setImage(with: URL(string: item.image.replacingOccurrences(of: "http:", with: "https:")) , placeholderImage: UIImage(named: "bagTobuy"))
         nameItem.text = item.name
