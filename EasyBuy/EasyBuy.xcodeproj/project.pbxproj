@@ -120,6 +120,7 @@
 		96EB5258264F1399006B2521 /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EB5256264F1399006B2521 /* CategoriesCollectionViewCell.xib */; };
 		96EB525A264F1572006B2521 /* BodyMediumLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB5259264F1572006B2521 /* BodyMediumLabel.swift */; };
 		96EB525C264F387C006B2521 /* ErrorGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB525B264F387C006B2521 /* ErrorGeneral.swift */; };
+		96FAD3592653584100275EAD /* ItemDetailMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3582653584100275EAD /* ItemDetailMock.swift */; };
 		E8CA642B4F3DCB0A2ECACD16 /* Pods_EasyBuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F98CAF3EA00E8878FC4A810 /* Pods_EasyBuy.framework */; };
 /* End PBXBuildFile section */
 
@@ -256,6 +257,7 @@
 		96EB5256264F1399006B2521 /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		96EB5259264F1572006B2521 /* BodyMediumLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMediumLabel.swift; sourceTree = "<group>"; };
 		96EB525B264F387C006B2521 /* ErrorGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorGeneral.swift; sourceTree = "<group>"; };
+		96FAD3582653584100275EAD /* ItemDetailMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailMock.swift; sourceTree = "<group>"; };
 		97CA91AD658BF6179F44E35F /* Pods_EasyBuyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyBuyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9875FE54DF3E9001FC3A560F /* Pods-EasyBuy.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuy.qa.xcconfig"; path = "Target Support Files/Pods-EasyBuy/Pods-EasyBuy.qa.xcconfig"; sourceTree = "<group>"; };
 		C22B0206248F02382F2144FA /* Pods-EasyBuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyBuy.debug.xcconfig"; path = "Target Support Files/Pods-EasyBuy/Pods-EasyBuy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -731,6 +733,7 @@
 			children = (
 				96EB5224264ED393006B2521 /* MockURLSession.swift */,
 				96EB5226264ED3AE006B2521 /* MockURLSessionDataTask.swift */,
+				96FAD3582653584100275EAD /* ItemDetailMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1068,6 +1071,7 @@
 				968CE6392651E347002D9973 /* ListToItemsViewControllerTests.swift in Sources */,
 				96EB521F264ED2D4006B2521 /* Data+JSONFile.swift in Sources */,
 				967705A9265348D000F9C9D2 /* ItemDetailWorkerTests.swift in Sources */,
+				96FAD3592653584100275EAD /* ItemDetailMock.swift in Sources */,
 				968CE63A2651E347002D9973 /* ListToItemsInteractorTests.swift in Sources */,
 				967705A7265348D000F9C9D2 /* ItemDetailViewControllerTests.swift in Sources */,
 				968CE63B2651E347002D9973 /* ListToItemsWorkerTests.swift in Sources */,

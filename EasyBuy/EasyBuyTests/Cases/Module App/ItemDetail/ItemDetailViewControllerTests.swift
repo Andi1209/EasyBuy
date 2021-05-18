@@ -15,6 +15,10 @@ class ItemDetailViewControllerTests: XCTestCase{
     
     var sut: ItemDetailViewController!
     var window: UIWindow!
+    var spy: ItemDetailBusinessLogicSpy!
+    var item: ItemModel!
+    var viewModelLoadInitalData: ItemDetail.LoadInitalData.ViewModel!
+   
     
     // MARK: Test lifecycle
     
@@ -33,8 +37,10 @@ class ItemDetailViewControllerTests: XCTestCase{
     // MARK: Test setup
     
     func setupItemDetailViewController(){
-        
         sut = ItemDetailViewController()
+        spy = ItemDetailBusinessLogicSpy()
+        sut.interactor = spy
+        item = ItemModelMock().initMock()
     }
     
     func loadView(){
@@ -53,29 +59,75 @@ class ItemDetailViewControllerTests: XCTestCase{
         }
     }
     
+    
+    func getLoadInitalData(){
+        let headerSellerInformation = NSLocalizedString("itemDetail.label.headerSellerInformation", comment: "")
+        let headerFeatureInformation = NSLocalizedString("itemDetail.label.headerFeatureInformation", comment: "")
+        viewModelLoadInitalData = ItemDetail.LoadInitalData.ViewModel(item: item, headerSellerInformation: headerSellerInformation, headerFeatureInformation: headerFeatureInformation)
+    }
+    
     // MARK: Tests
     
-    func testShouldLoadInitialInformationWhenViewIsLoaded(){
+    func test_giveShouldLoadInitialInformationWhenViewIsLoaded_whenSuccess(){
         // Given
-        let spy = ItemDetailBusinessLogicSpy()
-        sut.interactor = spy
-        
-        // When
         loadView()
-        
+        // When
+        sut.loadInitialInformation()
         // Then
         XCTAssertTrue(spy.LoadInitalDataCalled, "viewDidLoad() should ask the interactor to do something")
     }
     
-//    func testDisplayLoadInitialInformation(){
-//        // Given
-//        let viewModel = ItemDetail.LoadInitalData.ViewModel()
-//        
-//        // When
-//        loadView()
-//        sut.displayInitialInformation(viewModel: viewModel)
-//        
-//        // Then
-//        //XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
-//    }
+    func test_displayInitialInformation_whenSucces(){
+        // Given
+        loadView()
+        getLoadInitalData()
+        
+        // When
+        sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
+        guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 0, section: 0)) as? InformationItemTableViewCell else{XCTFail("Invalid alertViewController"); return}
+        
+        // Then
+        XCTAssertEqual(cell.nameItem.text, "Pijama Para Carro En Algodón Impermeable Talla L", "viewDidLoad() should ask the interactor to do something")
+    }
+    
+    
+    func test_displayInitialInformationHeaderInformation_whenSucces(){
+        // Given
+        loadView()
+        getLoadInitalData()
+        
+        // When
+        sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
+        guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 1, section: 0)) as? HeaderInformationItemTableViewCell else{XCTFail("Invalid alertViewController"); return}
+        
+        // Then
+        XCTAssertEqual(cell.title.text, "Information about the seller", "test_displayInitialInformationHeaderInformation_whenSucces should ask the interactor to do something")
+    }
+    
+    func test_displayInitialInformationOnlyText_whenSucces(){
+        // Given
+        loadView()
+        getLoadInitalData()
+        
+        // When
+        sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
+        guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 2, section: 0)) as? OnlyTextInformationTableViewCell else{XCTFail("Invalid alertViewController"); return}
+        
+        // Then
+        XCTAssertEqual(cell.value.text, "Barrios Unidos - Bogotá D.C.", "test_displayInitialInformationTwoRow_whenSucces should ask the interactor to do something")
+    }
+    
+    func test_displayInitialInformationTwoText_whenSucces(){
+        // Given
+        loadView()
+        getLoadInitalData()
+        
+        // When
+        sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
+        guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 4, section: 0)) as? TwoTextInformationTableViewCell else{XCTFail("Invalid alertViewController"); return}
+        
+        // Then
+        XCTAssertEqual(cell.subTitle.text, "Marca", "test_displayInitialInformationTwoText_whenSucces should ask the interactor to do something")
+    }
+    
 }
