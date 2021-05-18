@@ -16,6 +16,7 @@ protocol ListToItemsBusinessLogic {
 }
 
 protocol ListToItemsDataStore {
+    var item:ItemModel? { get set }
 }
 
 class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
@@ -26,6 +27,7 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
     var offset: Int = 0
     var totalItemsGet : Int = 0
     var currencyTotalItems : Int = 0
+    var item: ItemModel?
     
     func loadInitialInformation(request: ListToItems.LoadInitalData.Request) {
         worker.fetchCategories(country: "MCO") { (response, result) in

@@ -15,6 +15,10 @@ class BasicNetworkEngineTest: NetworkEngine{
       return URL(string: "/token")!
     }
     
+    var getUrlCategoria: URL {
+      return URL(string: "/categorias")!
+    }
+    
     var getUrlShearCategoria: URL {
       return URL(string: "/uRLSearchItemCat")!
     }
@@ -26,6 +30,7 @@ class BasicNetworkEngineTest: NetworkEngine{
     
     var nameMockArchive:String = ""
     var uRLSearchItemCatpath = "ItemsResult"
+    var uRLCategoria = "Categorias"
 
     
     override func requestGeneric(request: URLRequest, completion: @escaping (Data?, HTTPURLResponse?, NSError?) -> Void) -> URLSessionDataTask {
@@ -71,6 +76,8 @@ class BasicNetworkEngineTest: NetworkEngine{
         switch urlText {
         case "/uRLSearchItemCat":
             nameMockArchive = uRLSearchItemCatpath
+        case "categorias":
+            nameMockArchive = uRLCategoria
         default:
             nameMockArchive = ""
         }

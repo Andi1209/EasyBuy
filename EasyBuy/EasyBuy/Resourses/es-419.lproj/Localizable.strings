@@ -6,11 +6,16 @@
   
 */
 ////=============================***Textos Generales***==============================////
-
+"barTitle.label.itemdetail" = "Detalle De Producto";
 
 
 ////=============================***ListToItems***==================================////
 "listToItems.label.errorCategorias" = "Categorías no disponibles";
+
+
+////========================ItemDetail========================///////
+"itemDetail.label.headerSellerInformation" = "Información sobre el vendedor";
+"itemDetail.label.headerFeatureInformation" = "Características";
 
 
 ////========================Error Service=============================////////

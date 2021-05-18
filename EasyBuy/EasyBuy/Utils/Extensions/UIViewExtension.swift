@@ -36,5 +36,23 @@ extension UIView {
         self.layer.shadowRadius = 1
      }
     
-    
+
+    var heightConstraint: NSLayoutConstraint? {
+        get {
+            return constraints.first(where: {
+                $0.firstAttribute == .height && $0.relation == .equal
+            })
+        }
+        set { setNeedsLayout() }
+    }
+
+    var widthConstraint: NSLayoutConstraint? {
+        get {
+            return constraints.first(where: {
+                $0.firstAttribute == .width && $0.relation == .equal
+            })
+        }
+        set { setNeedsLayout() }
+    }
+
 }

@@ -54,6 +54,7 @@ class LauncherViewController: BaseViewController, LauncherDisplayLogic {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setEnableNavigationbar(type: .none)
         loadInitialInformation()
     }
     

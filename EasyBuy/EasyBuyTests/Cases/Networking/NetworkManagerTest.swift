@@ -62,6 +62,12 @@ class NetworkManagerTest: XCTestCase {
     
     func test_categories_succes() {
         // When
+        networkEngineSpy.response = HTTPURLResponse(url: networkEngineSpy.getUrlCategoria,
+                                                    statusCode: 200,
+                                                    httpVersion: nil,
+                                                    headerFields: nil)
+        
+        // When
         whenToRequest(uRLRequestConvertible: uRLRequest)
 
         // Then

@@ -71,15 +71,17 @@ class ListToItemsPresenter: ListToItemsPresentationLogic {
             let freeShipping:Bool = getFreeShipping(shipping: item.shipping)
             let installments:String = getInstallments(installments: item.installments)
             let address:String = getAddress(address: item.address)
+            let attributes:[AttributesModel] = getAttributes(attributes: item.attributes)
             
             let itemModel = ItemModel(name: item.name,
                                       condition: condition,
-                                      price: "\(item.price)",
+                                      soldQuantity: item.soldQuantity,
+                                      price: getCurrency(currencyID: item.currencyID) + item.price.getPriceFormat(),
                                       currency: item.currencyID,
                                       installments: installments,
                                       address: address,
                                       image: item.image,
-                                      freeShipping: freeShipping)
+                                      freeShipping: freeShipping, attributes: attributes)
             itemsModel.append(itemModel)
         }
         return itemsModel
@@ -112,6 +114,31 @@ class ListToItemsPresenter: ListToItemsPresentationLogic {
           return shipping?.freeShipping ?? false
     }
     
+    
+    func getAttributes(attributes:[Attribute]?)-> [AttributesModel] {
+        var attributesModel :[AttributesModel] = []
+        guard let attributes = attributes else {return attributesModel}
+        for attribute in attributes {
+            if attribute.id != "ITEM_CONDITION" {
+                let title = attribute.name ?? ""
+                let valor = attribute.valueName ?? ""
+                let atributeStruct = AttributesModel(title: title, vale: valor)
+                attributesModel.append(atributeStruct)
+            }
+        }
+          return attributesModel
+    }
+    
+    
+    func getCurrency(currencyID:String)->String{
+        switch currencyID {
+        case "COP":
+            return "$ "
+        default:
+            return ""
+        }
+       
+    }
     
 }
 

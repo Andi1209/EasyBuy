@@ -7,49 +7,46 @@
 import UIKit
 
 @objc protocol ListToItemsRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToDetalleToItem()
 }
 
 protocol ListToItemsDataPassing {
     var dataStore: ListToItemsDataStore? { get }
+    var item:ItemModel? { get set }
 }
 
 class ListToItemsRouter: NSObject, ListToItemsRoutingLogic, ListToItemsDataPassing {
+    
+    
     weak var viewController: ListToItemsViewController?
     var dataStore: ListToItemsDataStore?
+    var item: ItemModel?
     
     // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier:
-    //"SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToDetalleToItem() {
+        let destinationVC = ItemDetailViewController()
+        guard let item = item else {return}
+        dataStore?.item = item
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToDetalleToItem(source: dataStore!, destination: &destinationDS)
+        navigateToDetalleToItem(source: viewController ?? ListToItemsViewController(), destination: destinationVC)
+    }
+    
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source:
-    //ListToItemsViewController, destination:
-    //SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToDetalleToItem(source: ListToItemsViewController, destination: ItemDetailViewController) {
+        let navigation = UINavigationController(rootViewController: destination)
+        navigation.modalPresentationStyle = .overFullScreen
+        navigation.modalTransitionStyle = .coverVertical
+        source.show(destination, sender: nil)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: ListToItemsDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToDetalleToItem(source: ListToItemsDataStore, destination: inout ItemDetailDataStore) {
+        destination.item = source.item
+    }
 }
 
