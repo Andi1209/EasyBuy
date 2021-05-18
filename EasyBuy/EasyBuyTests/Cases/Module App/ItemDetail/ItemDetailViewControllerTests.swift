@@ -101,7 +101,7 @@ class ItemDetailViewControllerTests: XCTestCase{
         guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 1, section: 0)) as? HeaderInformationItemTableViewCell else{XCTFail("Invalid alertViewController"); return}
         
         // Then
-        XCTAssertEqual(cell.title.text, "Information about the seller", "test_displayInitialInformationHeaderInformation_whenSucces should ask the interactor to do something")
+        XCTAssertEqual(cell.title.text, NSLocalizedString("itemDetail.label.headerSellerInformation", comment: ""), "test_displayInitialInformationHeaderInformation_whenSucces should ask the interactor to do something")
     }
     
     func test_displayInitialInformationOnlyText_whenSucces(){

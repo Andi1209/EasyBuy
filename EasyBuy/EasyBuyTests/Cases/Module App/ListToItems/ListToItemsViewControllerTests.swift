@@ -251,7 +251,8 @@ class ListToItemsViewControllerTests: XCTestCase{
         // Then
         guard let alertViewController = sut.presentedViewController as? AlertViewController else{XCTFail("Invalid alertViewController"); return}
         // Then
-        XCTAssertEqual(alertViewController.textAlert, "Your request could not be processed.\n\nPlease try again later.", "displayErroItemInformation(viewModel:) should update the name text field")
+        XCTAssertEqual(alertViewController.textAlert, NSLocalizedString("service.error.errorGeneralResponse",
+                                                                        comment: ""), "displayErroItemInformation(viewModel:) should update the name text field")
     }
     
     
