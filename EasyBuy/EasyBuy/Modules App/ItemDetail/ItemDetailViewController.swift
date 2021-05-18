@@ -89,6 +89,11 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     
     // MARK: Display
     func displayInitialInformation(viewModel: ItemDetail.LoadInitalData.ViewModel) {
+        if UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height {
+            isLandscape = false
+        } else {
+            isLandscape = true
+        }
         tableItemDetail.isLandscape = isLandscape
         tableItemDetail.item = viewModel.item
         tableItemDetail.headerSellerInformation = viewModel.headerSellerInformation
