@@ -89,7 +89,7 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     
     // MARK: Display
     func displayInitialInformation(viewModel: ItemDetail.LoadInitalData.ViewModel) {
-        tableItemDetail.isLandscape = false
+        tableItemDetail.isLandscape = isLandscape
         tableItemDetail.item = viewModel.item
         tableItemDetail.headerSellerInformation = viewModel.headerSellerInformation
         tableItemDetail.headerFeatureInformation = viewModel.headerFeatureInformation

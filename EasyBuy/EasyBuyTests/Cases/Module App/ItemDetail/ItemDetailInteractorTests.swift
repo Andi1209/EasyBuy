@@ -14,6 +14,9 @@ class ItemDetailInteractorTests: XCTestCase{
     // MARK: Subject under test
     
     var sut: ItemDetailInteractor!
+    var spy: ItemDetailPresentationLogicSpy!
+    var item: ItemModel!
+    
     
     // MARK: Test lifecycle
     
@@ -23,6 +26,8 @@ class ItemDetailInteractorTests: XCTestCase{
     }
     
     override func tearDown(){
+        sut = nil
+        spy = nil
         super.tearDown()
     }
     
@@ -30,6 +35,9 @@ class ItemDetailInteractorTests: XCTestCase{
     
     func setupItemDetailInteractor(){
         sut = ItemDetailInteractor()
+        spy = ItemDetailPresentationLogicSpy()
+        sut.presenter = spy
+        item = ItemModelMock().initMock()
     }
     
     // MARK: Test doubles
@@ -47,11 +55,9 @@ class ItemDetailInteractorTests: XCTestCase{
     
     func testPresentInitialInformation(){
         // Given
-        let spy = ItemDetailPresentationLogicSpy()
-        sut.presenter = spy
         let request = ItemDetail.LoadInitalData.Request()
-        
         // When
+        sut.item = item
         sut.loadInitialInformation(request: request)
         
         // Then

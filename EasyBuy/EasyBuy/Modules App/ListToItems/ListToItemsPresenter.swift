@@ -101,7 +101,8 @@ class ListToItemsPresenter: ListToItemsPresentationLogic {
     func getInstallments(installments: Installments?)->String{
         let amount = installments?.amount ?? 0
         let quantity = installments?.quantity ?? 0
-        return "Compralo en \(quantity)x \(amount) "
+        let currecyID = installments?.currencyID ?? ""
+        return "Compralo en \(quantity)x \(getCurrency(currencyID: currecyID))\(amount.getPriceFormat())"
     }
     
     func getAddress(address:Address?)->String{
