@@ -61,6 +61,8 @@
 		968CE63B2651E347002D9973 /* ListToItemsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE6372651E347002D9973 /* ListToItemsWorkerTests.swift */; };
 		968CE63C2651E347002D9973 /* ListToItemsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE6382651E347002D9973 /* ListToItemsPresenterTests.swift */; };
 		968CE63E2651EBD7002D9973 /* ItemsResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 968CE63D2651EBD7002D9973 /* ItemsResult.json */; };
+		968FF4AE26540D1800C00EF9 /* RotatingCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968FF4AD26540D1800C00EF9 /* RotatingCirclesView.swift */; };
+		968FF4B02654325B00C00EF9 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968FF4AF2654325B00C00EF9 /* UIViewControllerExtension.swift */; };
 		969BD68C264D67EC001BDA5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD68B264D67EC001BDA5D /* AppDelegate.swift */; };
 		969BD68E264D67EC001BDA5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BD68D264D67EC001BDA5D /* SceneDelegate.swift */; };
 		969BD695264D67ED001BDA5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 969BD694264D67ED001BDA5D /* Assets.xcassets */; };
@@ -192,6 +194,8 @@
 		968CE6372651E347002D9973 /* ListToItemsWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToItemsWorkerTests.swift; sourceTree = "<group>"; };
 		968CE6382651E347002D9973 /* ListToItemsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToItemsPresenterTests.swift; sourceTree = "<group>"; };
 		968CE63D2651EBD7002D9973 /* ItemsResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ItemsResult.json; sourceTree = "<group>"; };
+		968FF4AD26540D1800C00EF9 /* RotatingCirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCirclesView.swift; sourceTree = "<group>"; };
+		968FF4AF2654325B00C00EF9 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		969BD688264D67EC001BDA5D /* EasyBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969BD68B264D67EC001BDA5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		969BD68D264D67EC001BDA5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +320,7 @@
 				968CE62A2651C576002D9973 /* ErrorExtension.swift */,
 				9677059626531EC900F9C9D2 /* ImageViewExtension.swift */,
 				967705982653219900F9C9D2 /* DobleExtension.swift */,
+				968FF4AF2654325B00C00EF9 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -485,6 +490,22 @@
 			path = ListToItems;
 			sourceTree = "<group>";
 		};
+		968FF4AB26540CCC00C00EF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				968FF4AC26540CD300C00EF9 /* Loader */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		968FF4AC26540CD300C00EF9 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				968FF4AD26540D1800C00EF9 /* RotatingCirclesView.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		969BD67F264D67EC001BDA5D = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +582,7 @@
 		969BD6BD264D6855001BDA5D /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				968FF4AB26540CCC00C00EF9 /* Views */,
 				968CE6312651D6F3002D9973 /* Button */,
 				968CE62C2651C935002D9973 /* Alert */,
 				96EB5253264F1350006B2521 /* Cell */,
@@ -989,8 +1011,10 @@
 			files = (
 				96335FDF264DEC6C0005992F /* NetworkManager.swift in Sources */,
 				96335FE9264DEF260005992F /* ItemsResult.swift in Sources */,
+				968FF4B02654325B00C00EF9 /* UIViewControllerExtension.swift in Sources */,
 				96335FC9264DA8780005992F /* BodyRegularGrayLightLightLabel.swift in Sources */,
 				96335FF1264DEFE90005992F /* Installments.swift in Sources */,
+				968FF4AE26540D1800C00EF9 /* RotatingCirclesView.swift in Sources */,
 				96D9BC0B2652D01B001C68B0 /* ItemTableViewCell.swift in Sources */,
 				96EB5257264F1399006B2521 /* CategoriesCollectionViewCell.swift in Sources */,
 				96EB5214264EBE27006B2521 /* LogEnum.swift in Sources */,

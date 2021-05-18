@@ -21,6 +21,8 @@ class BaseViewController: UIViewController{
     var rightButtonNavigationBar = UIButton(type: .custom)
     var actionLeftButtonNAvigationBar: (()->Void) = {}
     var withAnimation:Bool = true
+    var loaderView = UIView()
+    var rotatingCircles = RotatingCirclesView()
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -97,7 +99,7 @@ class BaseViewController: UIViewController{
     
 }
 
-
+    // MARK: SetUpConstraints
 extension BaseViewController {
     func setUpNavigationBarConstraints() {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -214,10 +216,8 @@ extension BaseViewController {
 }
 
 
-
+// MARK: SetUpConstraintsLandScape
 extension BaseViewController {
-
-    
     func setUpNavigationBarConstraintsLandScape() {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
         let leftConstraint = NSLayoutConstraint(item: navigationBar,
@@ -330,3 +330,22 @@ extension BaseViewController {
     }
     
 }
+
+// MARK: Loader
+extension BaseViewController {
+      
+    func showLoader(_ isLoader:Bool){
+        if isLoader {
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.loaderView =  UIViewController.displaySpinner(onView: self.view,aIndicator: self.rotatingCircles)
+            }
+        } else {
+            self.rotatingCircles.finish = true
+            DispatchQueue.main.asyncAfter(deadline: .now()){
+                UIViewController.removeSpinner(spinner: self.loaderView)
+            }
+        }
+    }
+    
+}
+

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="landscape" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,49 +14,49 @@
             <rect key="frame" x="0.0" y="0.0" width="409" height="487"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="44" y="0.0" width="321" height="487"/>
+                <rect key="frame" x="0.0" y="0.0" width="409" height="487"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bQg-V5-bBV">
-                        <rect key="frame" x="368" y="0.0" width="41" height="41"/>
+                        <rect key="frame" x="351.5" y="0.0" width="57.5" height="57.5"/>
                         <color key="tintColor" systemColor="linkColor"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="bQg-V5-bBV" secondAttribute="height" multiplier="1:1" id="7Fp-0w-7l8"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-Er-XRi">
-                        <rect key="frame" x="102.33333333333333" y="96" width="204.33333333333337" height="268"/>
+                        <rect key="frame" x="102.5" y="96" width="204.5" height="268"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freeDelivery" translatesAutoresizingMaskIntoConstraints="NO" id="FA5-bC-HHU">
-                        <rect key="frame" x="356.33333333333331" y="409.66666666666669" width="32.666666666666686" height="32.666666666666686"/>
+                        <rect key="frame" x="340" y="399.5" width="53" height="53"/>
                         <color key="tintColor" systemColor="linkColor"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="FA5-bC-HHU" secondAttribute="height" multiplier="1:1" id="vwb-aq-eiw"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Control Joystick Inalámbrico Sony Dualshock 4 Jet Black" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lc6-Ia-EVi" customClass="BigTitleSemiboldLabel" customModule="EasyBuy" customModuleProvider="target">
-                        <rect key="frame" x="20" y="23.333333333333332" width="369" height="52.666666666666671"/>
+                        <rect key="frame" x="20" y="23" width="369" height="53"/>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0zT-Ig-sjv">
-                        <rect key="frame" x="20" y="395.66666666666669" width="326.33333333333331" height="61"/>
+                        <rect key="frame" x="20" y="395.5" width="310" height="61.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 100" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-Ew-4LF" customClass="BigSubtitleBoldLabel" customModule="EasyBuy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="326.33333333333331" height="20.333333333333332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="310" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12x $35" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwy-wN-f17" customClass="BigBodyRegularGreenLabel" customModule="EasyBuy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20.333333333333314" width="326.33333333333331" height="20.333333333333329"/>
+                                <rect key="frame" x="0.0" y="20.5" width="310" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 100" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXH-S2-Pg1" customClass="BigBodyRegularBlueLabel" customModule="EasyBuy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="40.666666666666629" width="326.33333333333331" height="20.333333333333329"/>
+                                <rect key="frame" x="0.0" y="41" width="310" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -87,22 +87,23 @@
                 <variation key="heightClass=compact-widthClass=compact">
                     <mask key="constraints">
                         <exclude reference="jsY-Be-Cbu"/>
+                        <exclude reference="bwU-b8-KmQ"/>
                     </mask>
                 </variation>
                 <variation key="heightClass=compact-widthClass=regular">
                     <mask key="constraints">
-                        <include reference="FjB-Pf-Ugj"/>
-                        <exclude reference="bwU-b8-KmQ"/>
                         <include reference="Rae-bC-sLf"/>
                         <exclude reference="jsY-Be-Cbu"/>
+                        <include reference="FjB-Pf-Ugj"/>
+                        <exclude reference="bwU-b8-KmQ"/>
                     </mask>
                 </variation>
                 <variation key="heightClass=regular-widthClass=compact">
                     <mask key="constraints">
-                        <exclude reference="FjB-Pf-Ugj"/>
-                        <include reference="bwU-b8-KmQ"/>
                         <exclude reference="Rae-bC-sLf"/>
                         <include reference="jsY-Be-Cbu"/>
+                        <exclude reference="FjB-Pf-Ugj"/>
+                        <include reference="bwU-b8-KmQ"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -120,8 +121,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="freeDelivery" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="newIcon" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="freeDelivery" width="171" height="171"/>
+        <image name="newIcon" width="171" height="171"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
