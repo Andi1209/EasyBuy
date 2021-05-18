@@ -18,14 +18,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableItemDetail" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5JB-HW-uFZ">
-                    <rect key="frame" x="0.0" y="45.5" width="320" height="522.5"/>
+                    <rect key="frame" x="0.0" y="57" width="320" height="511"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5JB-HW-uFZ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.92" id="Msi-NZ-PiE"/>
+                <constraint firstItem="5JB-HW-uFZ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.9" id="Msi-NZ-PiE"/>
                 <constraint firstItem="5JB-HW-uFZ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="UF4-g2-0ed"/>
                 <constraint firstAttribute="bottom" secondItem="5JB-HW-uFZ" secondAttribute="bottom" id="Vnk-GK-SCb"/>
                 <constraint firstItem="5JB-HW-uFZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jtC-Re-G0Q"/>
