@@ -48,6 +48,10 @@
 		96770594265309D000F9C9D2 /* BodyBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96770593265309D000F9C9D2 /* BodyBoldLabel.swift */; };
 		9677059726531EC900F9C9D2 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677059626531EC900F9C9D2 /* ImageViewExtension.swift */; };
 		967705992653219900F9C9D2 /* DobleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967705982653219900F9C9D2 /* DobleExtension.swift */; };
+		967705A7265348D000F9C9D2 /* ItemDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967705A3265348D000F9C9D2 /* ItemDetailViewControllerTests.swift */; };
+		967705A8265348D000F9C9D2 /* ItemDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967705A4265348D000F9C9D2 /* ItemDetailInteractorTests.swift */; };
+		967705A9265348D000F9C9D2 /* ItemDetailWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967705A5265348D000F9C9D2 /* ItemDetailWorkerTests.swift */; };
+		967705AA265348D000F9C9D2 /* ItemDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967705A6265348D000F9C9D2 /* ItemDetailPresenterTests.swift */; };
 		968CE62B2651C576002D9973 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE62A2651C576002D9973 /* ErrorExtension.swift */; };
 		968CE62F2651C94A002D9973 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CE62D2651C94A002D9973 /* AlertViewController.swift */; };
 		968CE6302651C94A002D9973 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968CE62E2651C94A002D9973 /* AlertViewController.xib */; };
@@ -174,6 +178,10 @@
 		96770593265309D000F9C9D2 /* BodyBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyBoldLabel.swift; sourceTree = "<group>"; };
 		9677059626531EC900F9C9D2 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		967705982653219900F9C9D2 /* DobleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DobleExtension.swift; sourceTree = "<group>"; };
+		967705A3265348D000F9C9D2 /* ItemDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		967705A4265348D000F9C9D2 /* ItemDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailInteractorTests.swift; sourceTree = "<group>"; };
+		967705A5265348D000F9C9D2 /* ItemDetailWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailWorkerTests.swift; sourceTree = "<group>"; };
+		967705A6265348D000F9C9D2 /* ItemDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailPresenterTests.swift; sourceTree = "<group>"; };
 		968CE62A2651C576002D9973 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		968CE62D2651C94A002D9973 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		968CE62E2651C94A002D9973 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
@@ -436,6 +444,17 @@
 			path = TwoTextInformation;
 			sourceTree = "<group>";
 		};
+		967705A2265348C300F9C9D2 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				967705A3265348D000F9C9D2 /* ItemDetailViewControllerTests.swift */,
+				967705A4265348D000F9C9D2 /* ItemDetailInteractorTests.swift */,
+				967705A5265348D000F9C9D2 /* ItemDetailWorkerTests.swift */,
+				967705A6265348D000F9C9D2 /* ItemDetailPresenterTests.swift */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
 		968CE62C2651C935002D9973 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,21 +622,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		96D9BBDE2652A2EB001C68B0 /* ItemDetail */ = {
-			isa = PBXGroup;
-			children = (
-				96D9BBED2652A332001C68B0 /* TableItemDetail */,
-			);
-			path = ItemDetail;
-			sourceTree = "<group>";
-		};
-		96D9BBED2652A332001C68B0 /* TableItemDetail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableItemDetail;
-			sourceTree = "<group>";
-		};
 		96D9BBF02652A633001C68B0 /* ItemDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,7 +746,7 @@
 		96EB522D264ED673006B2521 /* Module App */ = {
 			isa = PBXGroup;
 			children = (
-				96D9BBDE2652A2EB001C68B0 /* ItemDetail */,
+				967705A2265348C300F9C9D2 /* ItemDetail */,
 				968CE6342651E338002D9973 /* ListToItems */,
 				96EB522E264ED678006B2521 /* Launcher */,
 			);
@@ -1058,15 +1062,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967705AA265348D000F9C9D2 /* ItemDetailPresenterTests.swift in Sources */,
 				96EB523C264ED704006B2521 /* LauncherInteractorTests.swift in Sources */,
 				96EB521A264ED1F4006B2521 /* Seeds.swift in Sources */,
 				968CE6392651E347002D9973 /* ListToItemsViewControllerTests.swift in Sources */,
 				96EB521F264ED2D4006B2521 /* Data+JSONFile.swift in Sources */,
+				967705A9265348D000F9C9D2 /* ItemDetailWorkerTests.swift in Sources */,
 				968CE63A2651E347002D9973 /* ListToItemsInteractorTests.swift in Sources */,
+				967705A7265348D000F9C9D2 /* ItemDetailViewControllerTests.swift in Sources */,
 				968CE63B2651E347002D9973 /* ListToItemsWorkerTests.swift in Sources */,
 				96EB522C264ED496006B2521 /* NetworkManagerTest.swift in Sources */,
 				96EB5227264ED3AE006B2521 /* MockURLSessionDataTask.swift in Sources */,
 				968CE63C2651E347002D9973 /* ListToItemsPresenterTests.swift in Sources */,
+				967705A8265348D000F9C9D2 /* ItemDetailInteractorTests.swift in Sources */,
 				96EB523D264ED704006B2521 /* LauncherWorkerTests.swift in Sources */,
 				96EB523E264ED704006B2521 /* LauncherPresenterTests.swift in Sources */,
 				96EB523B264ED704006B2521 /* LauncherViewControllerTests.swift in Sources */,

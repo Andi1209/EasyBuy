@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ItemDetailDisplayLogic: class {
+protocol ItemDetailDisplayLogic: AnyObject {
     func displayInitialInformation(viewModel: ItemDetail.LoadInitalData.ViewModel)
 }
 
