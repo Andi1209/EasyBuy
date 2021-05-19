@@ -26,11 +26,11 @@ class BaseViewController: UIViewController{
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-            if UIDevice.current.orientation.isLandscape  {
-                setUpConstraintsLandScape()
-            } else {
-                setUpConstraints()
-            }
+        if UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height {
+            setUpConstraints()
+        } else {
+            setUpConstraintsLandScape()
+        }
     }
     
     override func viewDidLoad() {

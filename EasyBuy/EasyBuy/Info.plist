@@ -71,5 +71,13 @@
 	</array>
 	<key>baseURL</key>
 	<string>$(BASE_URL)</string>
+	<key>googleFireBaseFile</key>
+	<string>$(GOOGLE_FIREBASE_FILE)</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow the application to access your location to improve the experience</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow the application to access your location to improve the experience</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow the application to access your location to improve the experience</string>
 </dict>
 </plist>

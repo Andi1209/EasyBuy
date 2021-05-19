@@ -99,14 +99,16 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     }
     
     @objc func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if size.height == 0.0 {
-            if UIDevice.current.orientation.isLandscape  {
-                isLandscape = true
-            } else {
-                isLandscape = false
-            }
-            categoriesColllection.reloadData()
+        if UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height {
+            isLandscape = false
             listItemsTable.reloadData()
+            categoriesColllection.reloadData()
+            categoriesColllection.reloadInputViews()
+        } else {
+            isLandscape = true
+            listItemsTable.reloadData()
+            categoriesColllection.reloadData()
+            categoriesColllection.reloadInputViews()
         }
     }
     
@@ -280,10 +282,17 @@ extension ListToItemsViewController : UICollectionViewDataSource {
 extension ListToItemsViewController :  UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width
-        let height = (collectionView.bounds.height - (collectionView.bounds.height * 0.11))
-        let size = CGSize(width:width/2.2, height: height)
-        return size
+        if isLandscape {
+            let width = collectionView.frame.width
+            let height = (collectionView.frame.height - (collectionView.frame.height * 0.11))
+            let size = CGSize(width:width/3, height: height)
+            return size
+        }else{
+            let width = collectionView.frame.width
+            let height = (collectionView.frame.height - (collectionView.frame.height * 0.11))
+            let size = CGSize(width:width/2.2, height: height)
+            return size
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

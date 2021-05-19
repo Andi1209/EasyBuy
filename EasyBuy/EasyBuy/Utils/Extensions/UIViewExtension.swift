@@ -25,7 +25,7 @@ extension UIView {
     
     func roundClipsToBounds(){
         self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.height * 0.4
+        self.layer.cornerRadius = 20
     }
     
     func dropShadow() {

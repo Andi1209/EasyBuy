@@ -30,7 +30,7 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
     var item: ItemModel?
     
     func loadInitialInformation(request: ListToItems.LoadInitalData.Request) {
-        worker.fetchCategories(country: "MCO") { (response, result) in
+        worker.fetchCategories(country: UserDefaults.standard.getCurrencyContry()) { (response, result) in
             switch result {
             case .success:
                 guard let results = result.value else {
@@ -47,7 +47,7 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
     
     func getCategoreInformation(request: ListToItems.GetCategorie.Request) {
         configInitialParametrs()
-        worker.fetchCategorieForID(country: "MCO", category: request.category, offset: "\(offset)") { (response, result) in
+        worker.fetchCategorieForID(country: UserDefaults.standard.getCurrencyContry(), category: request.category, offset: "\(offset)") { (response, result) in
             switch result {
             case .success:
                 guard let results = result.value else {
@@ -78,7 +78,7 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
     
     func getNextPageItemInformation(request: ListToItems.GetCategorie.Request) {
         offset += 1
-        worker.fetchCategorieForID(country: "MCO", category: request.category, offset: "\(offset)") { (response, result) in
+        worker.fetchCategorieForID(country: UserDefaults.standard.getCurrencyContry(), category: request.category, offset: "\(offset)") { (response, result) in
             switch result {
             case .success:
                 guard let results = result.value else {
@@ -107,7 +107,7 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
     
     func getItemForNameInformation(request: ListToItems.GetItemForName.Request) {
         configInitialParametrs()
-        worker.fetchItemForName(country: "MCO", name: request.name, offset: "\(offset)") { (response, result) in
+        worker.fetchItemForName(country: UserDefaults.standard.getCurrencyContry(), name: request.name, offset: "\(offset)") { (response, result) in
             switch result {
             case .success:
                 guard let results = result.value else {
@@ -137,7 +137,7 @@ class ListToItemsInteractor: ListToItemsBusinessLogic, ListToItemsDataStore {
     
     func getNextItemForNameInformation(request: ListToItems.GetItemForName.Request) {
         offset += 1
-        worker.fetchItemForName(country: "MCO", name: request.name, offset: "\(offset)") { (response, result) in
+        worker.fetchItemForName(country: UserDefaults.standard.getCurrencyContry(), name: request.name, offset: "\(offset)") { (response, result) in
             switch result {
             case .success:
                 guard let results = result.value else {
