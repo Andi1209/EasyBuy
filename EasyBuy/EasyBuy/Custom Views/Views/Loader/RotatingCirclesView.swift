@@ -63,7 +63,6 @@ class RotatingCirclesView: UIView {
     
     func animate(_ circle: UIView, counter:Int){
         var counter = counter
-        print("Ejecutando")
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear,animations: {
             circle.frame = self.positions[counter]
             circle.layer.cornerRadius = circle.frame.width / 2

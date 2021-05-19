@@ -23,12 +23,11 @@ class Log {
     func reportLog(appDocument:AppDocument,parametersProcess:[String:Any]){
         getParamtrosGenerales()
         let parameters = parametersDefault.merging(parametersProcess, uniquingKeysWith: { (first, _) in first })
-        #warning("OJO Descomentar cuando se termine el desarrrollo")
-//        db.collection(appDocument.rawValue).addDocument(data: parameters) { (error) in
-//            if let error = error {
-//                print("Error to report log", error.localizedDescription)
-//            }
-//        }
+        db.collection(appDocument.rawValue).addDocument(data: parameters) { (error) in
+            if let error = error {
+                print("Error to report log", error.localizedDescription)
+            }
+        }
     }
     
     

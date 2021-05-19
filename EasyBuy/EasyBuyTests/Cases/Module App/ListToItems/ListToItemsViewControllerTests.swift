@@ -121,9 +121,9 @@ class ListToItemsViewControllerTests: XCTestCase{
         // When
         loadView()
         sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
-        
+        let cell = sut.categoriesColllection.dataSource?.collectionView(sut.categoriesColllection, cellForItemAt: IndexPath(row: 0, section: 0)) as! CategoriesCollectionViewCell
         // Then
-        XCTAssertTrue(sut.categoriesColllection.numberOfSections > 0, "displaySomething(viewModel:) should update the name text field")
+        XCTAssertEqual(cell.textCategorie.text, "Accesorios para Vehículos", "displayInitialInformation(viewModel:) should update the name text field")
     }
     
     

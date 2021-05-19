@@ -15,7 +15,7 @@ class TableItemDetail: UITableViewController{
     
     
     deinit {
-        print("TableItemDetail + deinit")
+//        print("TableItemDetail + deinit")
     }
     
 

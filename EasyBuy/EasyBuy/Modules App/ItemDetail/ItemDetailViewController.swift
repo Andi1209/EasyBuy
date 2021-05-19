@@ -42,7 +42,7 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
-        print("ItemDetailViewController + deinit")
+//        print("ItemDetailViewController + deinit")
     }
     
     // MARK: Setup
