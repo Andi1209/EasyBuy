@@ -31,6 +31,7 @@ class ItemDetailViewControllerTests: XCTestCase{
     override func tearDown(){
         window = nil
         sut = nil
+        XCUIDevice.shared.orientation = UIDeviceOrientation.portrait;
         super.tearDown()
     }
     
@@ -83,6 +84,19 @@ class ItemDetailViewControllerTests: XCTestCase{
         getLoadInitalData()
         
         // When
+        sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
+        guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 0, section: 0)) as? InformationItemTableViewCell else{XCTFail("Invalid alertViewController"); return}
+        
+        // Then
+        XCTAssertEqual(cell.nameItem.text, "Pijama Para Carro En Algodón Impermeable Talla L", "viewDidLoad() should ask the interactor to do something")
+    }
+    
+    func test_displayInitialInformationLandScape_whenSucces(){
+        // Given
+        loadView()
+        getLoadInitalData()
+        // When
+        XCUIDevice.shared.orientation = UIDeviceOrientation.landscapeRight;
         sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
         guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 0, section: 0)) as? InformationItemTableViewCell else{XCTFail("Invalid alertViewController"); return}
         
