@@ -310,6 +310,7 @@ extension ListToItemsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
+            dismissKeyboard()
             if indexPath.row == items.count - 1{
                 self.getNextPageItem()
             }
@@ -340,6 +341,7 @@ extension ListToItemsViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismissKeyboard()
         router?.item = self.items[indexPath.row]
         router?.routeToDetalleToItem()
     }

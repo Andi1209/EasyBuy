@@ -38,7 +38,7 @@ class ListToItemsWorkerTests: XCTestCase{
     
     func test_giveFetchCategories_whenSuccess(){
         // Given
-        let exp = expectation(description: "Success")
+        let exp = expectation(description: "Success categorry")
         var statusCode:Int?
         var searchResult:Result<[Categorie]>?
         // When
@@ -66,7 +66,7 @@ class ListToItemsWorkerTests: XCTestCase{
             exp.fulfill()
         }
         // Then
-        wait(for: [exp], timeout: 10)
+        wait(for: [exp], timeout: 20)
         XCTAssertEqual(statusCode, 200, "the request or service is not rigth")
         XCTAssertTrue(searchResult!.isSuccess)
     }

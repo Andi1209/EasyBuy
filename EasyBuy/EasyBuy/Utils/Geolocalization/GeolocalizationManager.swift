@@ -66,9 +66,7 @@ class GeoLocationManager: NSObject{
 extension GeoLocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if let _ = error as NSError? {
-                self.delegate?.setCountryLocation(country: Contries.CO.rawValue)
-        }
+        if let _ = error as NSError? {}
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
