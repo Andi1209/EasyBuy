@@ -9,4 +9,6 @@ import Foundation
 
 enum Contries: String {
     case CO = "CO"
+    case AR = "AR"
+    case BR = "BR"
 }

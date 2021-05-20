@@ -17,6 +17,10 @@ extension String {
         switch self {
         case "CO" :
             return "MCO"
+        case "AR":
+            return "MLA"
+        case "BR":
+            return "MLB"
         default:
             return "MCO"
         }
