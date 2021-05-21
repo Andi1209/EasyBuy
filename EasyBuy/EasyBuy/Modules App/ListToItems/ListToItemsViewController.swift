@@ -90,6 +90,7 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
         listItemsTable.delegate = self
         listItemsTable.dataSource = self
         listItemsTable.register(UINib(nibName: ItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ItemTableViewCell.identifier)
+        showLoader(true)
         loadInitialInformation()
     }
     
@@ -98,14 +99,16 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     }
     
     @objc func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if size.height == 0.0 {
-            if UIDevice.current.orientation.isLandscape  {
-                isLandscape = true
-            } else {
-                isLandscape = false
-            }
-            categoriesColllection.reloadData()
+        if UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height {
+            isLandscape = false
             listItemsTable.reloadData()
+            categoriesColllection.reloadData()
+            categoriesColllection.reloadInputViews()
+        } else {
+            isLandscape = true
+            listItemsTable.reloadData()
+            categoriesColllection.reloadData()
+            categoriesColllection.reloadInputViews()
         }
     }
     
@@ -115,10 +118,18 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
         interactor?.loadInitialInformation(request: request)
     }
     
+    func loadgetCategoreInformation(){
+        showLoader(true)
+        dismissKeyboard()
+        let request = ListToItems.GetCategorie.Request(category: self.categotiCurrent)
+        interactor?.getCategoreInformation(request: request)
+    }
+    
     func getNextPageItem(){
         if areThereMoreItems {
             if !wattingService {
                 wattingService = true
+                showLoader(true)
                 if categotiCurrent == "" {
                     let request = ListToItems.GetItemForName.Request(name: self.textCurrent)
                     interactor?.getNextItemForNameInformation(request: request)
@@ -130,6 +141,14 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
         }
     }
     
+    
+    func loadgetItemForNameInformation(){
+        showLoader(true)
+        let request = ListToItems.GetItemForName.Request(name: self.textCurrent)
+        interactor?.getItemForNameInformation(request: request)
+        dismissKeyboard()
+    }
+    
     // MARK: Display
     func displayInitialInformation(viewModel: ListToItems.LoadInitalData.ViewModel) {
         self.caregories = viewModel.caregories
@@ -137,6 +156,7 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
         categoriesColllection.dataSource = self
         categoriesColllection.register(UINib(nibName: CategoriesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier)
         categoriesColllection.backgroundColor = UIColor.grayApp
+        showLoader(false)
     }
     
     func displayInitialInformationError(viewModel: ListToItems.ErrorCategorias.ViewModel) {
@@ -146,12 +166,14 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     }
     
     func displayCategoreInformation(viewModel: ListToItems.GetCategorie.ViewModel) {
+        showLoader(false)
         self.items = viewModel.items
         self.areThereMoreItems = viewModel.areThereMoreItems
         listItemsTable.reloadData()
     }
     
     func displayNextPageItemInformation(viewModel: ListToItems.GetCategorie.ViewModel){
+        showLoader(false)
         for item in viewModel.items {
             self.items.append(item)
         }
@@ -161,6 +183,7 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     }
     
     func displaygetItemForNameInformation(viewModel: ListToItems.GetItemForName.ViewModel) {
+        showLoader(false)
         if items.count > 0 {
             listItemsTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
@@ -177,6 +200,7 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     
     
     func displayNextItemForNameInformation(viewModel: ListToItems.GetItemForName.ViewModel) {
+        showLoader(false)
         for item in viewModel.items {
             self.items.append(item)
         }
@@ -187,6 +211,7 @@ class ListToItemsViewController: BaseViewController, ListToItemsDisplayLogic {
     
     
     func displayErroItemInformation(viewModel: ServiceError.ErrorGeneral.ViewModel) {
+        showLoader(false)
         wattingService = false
         let alert = AlertViewController(text: viewModel.errorMesage)
         alert.modalPresentationStyle = .overFullScreen
@@ -208,9 +233,7 @@ extension ListToItemsViewController:UISearchBarDelegate {
                 return
             }
             self.textCurrent = text
-            let request = ListToItems.GetItemForName.Request(name: text)
-            interactor?.getItemForNameInformation(request: request)
-            dismissKeyboard()
+            loadgetItemForNameInformation()
         }
 
     }
@@ -234,9 +257,7 @@ extension ListToItemsViewController : UICollectionViewDelegate {
         if items.count > 0 {
             listItemsTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
-        dismissKeyboard()
-        let request = ListToItems.GetCategorie.Request(category: id)
-        interactor?.getCategoreInformation(request: request)
+        loadgetCategoreInformation()
     }
     
 }
@@ -261,10 +282,17 @@ extension ListToItemsViewController : UICollectionViewDataSource {
 extension ListToItemsViewController :  UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width
-        let height = (collectionView.bounds.height - (collectionView.bounds.height * 0.11))
-        let size = CGSize(width:width/2.2, height: height)
-        return size
+        if isLandscape {
+            let width = collectionView.frame.width
+            let height = (collectionView.frame.height - (collectionView.frame.height * 0.11))
+            let size = CGSize(width:width/3, height: height)
+            return size
+        }else{
+            let width = collectionView.frame.width
+            let height = (collectionView.frame.height - (collectionView.frame.height * 0.11))
+            let size = CGSize(width:width/2.2, height: height)
+            return size
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -282,6 +310,7 @@ extension ListToItemsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
+            dismissKeyboard()
             if indexPath.row == items.count - 1{
                 self.getNextPageItem()
             }
@@ -312,6 +341,7 @@ extension ListToItemsViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismissKeyboard()
         router?.item = self.items[indexPath.row]
         router?.routeToDetalleToItem()
     }

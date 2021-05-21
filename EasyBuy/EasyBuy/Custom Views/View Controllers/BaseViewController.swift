@@ -21,13 +21,15 @@ class BaseViewController: UIViewController{
     var rightButtonNavigationBar = UIButton(type: .custom)
     var actionLeftButtonNAvigationBar: (()->Void) = {}
     var withAnimation:Bool = true
+    var loaderView = UIView()
+    var rotatingCircles = RotatingCirclesView()
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if UIDevice.current.orientation.isLandscape  {
-            setUpConstraintsLandScape()
-        } else {
+        if UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height {
             setUpConstraints()
+        } else {
+            setUpConstraintsLandScape()
         }
     }
     
@@ -49,7 +51,7 @@ class BaseViewController: UIViewController{
         navigationBar.addSubview(backButtonNavigationBar)
         navigationBar.addSubview(titleLabelNavigationBar)
         navigationBar.addSubview(rightButtonNavigationBar)
-        let imageTemplate = UIImage(named: "bagTobuy")!
+        let imageTemplate = UIImage(named: "arrowBack-L")!
         backButtonNavigationBar.setImage(imageTemplate, for: .normal)
         backButtonNavigationBar.imageView?.contentMode = .scaleAspectFit
         backButtonNavigationBar.addTarget(self, action: #selector(actionBack), for: .touchUpInside)
@@ -97,7 +99,7 @@ class BaseViewController: UIViewController{
     
 }
 
-
+    // MARK: SetUpConstraints
 extension BaseViewController {
     func setUpNavigationBarConstraints() {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -140,7 +142,7 @@ extension BaseViewController {
                                                  relatedBy: NSLayoutConstraint.Relation.equal,
                                                  toItem: nil,
                                                  attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1,
-                                                 constant: (self.view.bounds.height*0.04))
+                                                 constant: (self.view.bounds.height*0.025))
         let centerConstraint = NSLayoutConstraint(item: backButtonNavigationBar,
                                                   attribute: NSLayoutConstraint.Attribute.centerY,
                                                   relatedBy: NSLayoutConstraint.Relation.equal,
@@ -152,7 +154,7 @@ extension BaseViewController {
                                                   relatedBy: NSLayoutConstraint.Relation.equal,
                                                   toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                                   multiplier: 1,
-                                                  constant: (self.view.bounds.height*0.04))
+                                                  constant: (self.view.bounds.height*0.025))
         view.addConstraints([leftConstraint, widthConstraint, centerConstraint, heightConstraint])
     }
     func setUpTitleConstraints() {
@@ -214,10 +216,8 @@ extension BaseViewController {
 }
 
 
-
+// MARK: SetUpConstraintsLandScape
 extension BaseViewController {
-
-    
     func setUpNavigationBarConstraintsLandScape() {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
         let leftConstraint = NSLayoutConstraint(item: navigationBar,
@@ -258,7 +258,7 @@ extension BaseViewController {
                                                  relatedBy: NSLayoutConstraint.Relation.equal,
                                                  toItem: nil,
                                                  attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1,
-                                                 constant: (self.view.bounds.height*0.1))
+                                                 constant: (self.view.bounds.height*0.05))
         let centerConstraint = NSLayoutConstraint(item: backButtonNavigationBar,
                                                   attribute: NSLayoutConstraint.Attribute.centerY,
                                                   relatedBy: NSLayoutConstraint.Relation.equal,
@@ -270,7 +270,7 @@ extension BaseViewController {
                                                   relatedBy: NSLayoutConstraint.Relation.equal,
                                                   toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                                   multiplier: 1,
-                                                  constant: (self.view.bounds.height*0.1))
+                                                  constant: (self.view.bounds.height*0.05))
         view.addConstraints([leftConstraint, widthConstraint, centerConstraint, heightConstraint])
     }
     func setUpTitleConstraintsLandScape() {
@@ -330,3 +330,22 @@ extension BaseViewController {
     }
     
 }
+
+// MARK: Loader
+extension BaseViewController {
+      
+    func showLoader(_ isLoader:Bool){
+        if isLoader {
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.loaderView =  UIViewController.displaySpinner(onView: self.view,aIndicator: self.rotatingCircles)
+            }
+        } else {
+            self.rotatingCircles.finish = true
+            DispatchQueue.main.asyncAfter(deadline: .now()){
+                UIViewController.removeSpinner(spinner: self.loaderView)
+            }
+        }
+    }
+    
+}
+

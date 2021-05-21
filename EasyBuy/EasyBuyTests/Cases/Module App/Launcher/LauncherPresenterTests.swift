@@ -3,7 +3,6 @@
 //  EasyBuy
 //
 //  Created by Andres Felipe Nunez on 14/05/21.
-//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 //
 

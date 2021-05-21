@@ -34,6 +34,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.overrideUserInterfaceStyle = .light
             }
         }
+        
+        if UserDefaults.standard.getAppToDiveceId().isEmpty {
+            let uuid = UUID().uuidString.lowercased()
+            UserDefaults.standard.setAppToDiveceId(value: uuid)
+        }
+            
     }
     
 

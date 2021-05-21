@@ -10,3 +10,4 @@
 
 CONFIGURATION   = QA
 BASE_URL        = https:/$()/api.mercadolibre.com
+GOOGLE_FIREBASE_FILE = GoogleService-Info-Dev

@@ -26,5 +26,14 @@ public enum Environment {
 
         return baseUrl
     }()
+    
+    
+    static let getGoogleFirebaseFile: String = {
+        guard let rootURLstring = Environment.pathDictionary["googleFireBaseFile"] as? String else {
+            fatalError("GoogleFirebaseFile not set in plist for this environment")
+        }
+
+        return rootURLstring
+    }()
 
 }

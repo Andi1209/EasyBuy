@@ -18,11 +18,22 @@ protocol LauncherDataStore {
 class LauncherInteractor: LauncherBusinessLogic, LauncherDataStore {
     var presenter: LauncherPresentationLogic?
     var worker: LauncherWorker = LauncherWorker()
+    
 
     
     func loadInitialInformation(request: Launcher.LoadInitalData.Request) {
-        let response = Launcher.LoadInitalData.Response()
-        presenter?.presentInitialInformation(response: response)
+        GeoLocationManager.sharedInstance.delegate = self
+        GeoLocationManager.sharedInstance.requestPermission()
+        
     }
 }
 
+
+extension LauncherInteractor: LocationServiceDelegate {
+    func setCountryLocation(country: String) {
+        UserDefaults.standard.setCurrencyContry(value: country.getCountryService())
+        let response = Launcher.LoadInitalData.Response()
+        self.presenter?.presentInitialInformation(response: response)
+    }
+    
+}

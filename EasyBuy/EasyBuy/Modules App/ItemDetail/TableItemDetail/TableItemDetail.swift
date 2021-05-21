@@ -15,7 +15,7 @@ class TableItemDetail: UITableViewController{
     
     
     deinit {
-        print("TableItemDetail + deinit")
+//        print("TableItemDetail + deinit")
     }
     
 
@@ -64,7 +64,7 @@ class TableItemDetail: UITableViewController{
             case 1,3 :
                 return tableView.frame.height * 0.15
             default:
-                return tableView.frame.height * 0.13
+                return UITableView.automaticDimension
             }
         }else{
             switch indexPath.row {
@@ -73,7 +73,7 @@ class TableItemDetail: UITableViewController{
             case 1,3 :
                 return tableView.frame.height * 0.08
             default:
-                return tableView.frame.height * 0.07
+                return UITableView.automaticDimension
             }
         }
            

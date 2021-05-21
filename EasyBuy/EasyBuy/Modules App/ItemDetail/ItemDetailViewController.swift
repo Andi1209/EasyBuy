@@ -3,7 +3,6 @@
 //  EasyBuy
 //
 //  Created by Andres Felipe Nunez on 17/05/21.
-//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 
 import UIKit
 
@@ -42,7 +41,7 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
-        print("ItemDetailViewController + deinit")
+        //        print("ItemDetailViewController + deinit")
     }
     
     // MARK: Setup
@@ -89,6 +88,11 @@ class ItemDetailViewController: BaseViewController, ItemDetailDisplayLogic {
     
     // MARK: Display
     func displayInitialInformation(viewModel: ItemDetail.LoadInitalData.ViewModel) {
+        if UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height {
+            isLandscape = false
+        } else {
+            isLandscape = true
+        }
         tableItemDetail.isLandscape = isLandscape
         tableItemDetail.item = viewModel.item
         tableItemDetail.headerSellerInformation = viewModel.headerSellerInformation

@@ -3,7 +3,7 @@
 //  EasyBuy
 //
 //  Created by Andres Felipe Nunez on 16/05/21.
-//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
+
 //
 //
 @testable import EasyBuy
@@ -121,9 +121,9 @@ class ListToItemsViewControllerTests: XCTestCase{
         // When
         loadView()
         sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
-        
+        let cell = sut.categoriesColllection.dataSource?.collectionView(sut.categoriesColllection, cellForItemAt: IndexPath(row: 0, section: 0)) as! CategoriesCollectionViewCell
         // Then
-        XCTAssertTrue(sut.categoriesColllection.numberOfSections > 0, "displaySomething(viewModel:) should update the name text field")
+        XCTAssertEqual(cell.textCategorie.text, "Accesorios para Vehículos", "displayInitialInformation(viewModel:) should update the name text field")
     }
     
     
@@ -251,7 +251,8 @@ class ListToItemsViewControllerTests: XCTestCase{
         // Then
         guard let alertViewController = sut.presentedViewController as? AlertViewController else{XCTFail("Invalid alertViewController"); return}
         // Then
-        XCTAssertEqual(alertViewController.textAlert, "Your request could not be processed.\n\nPlease try again later.", "displayErroItemInformation(viewModel:) should update the name text field")
+        XCTAssertEqual(alertViewController.textAlert, NSLocalizedString("service.error.errorGeneralResponse",
+                                                                        comment: ""), "displayErroItemInformation(viewModel:) should update the name text field")
     }
     
     

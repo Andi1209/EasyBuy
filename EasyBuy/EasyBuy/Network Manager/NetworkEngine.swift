@@ -86,20 +86,20 @@ class NetworkEngine: BasicNetworkEngineProtocol {
     }
     
     func printerNetworkDebugRequest(request: URLRequest) {
-        print("**********REQUEST**********")
-        print("*****Request URL: \(request)")
-        print("*****Request HeaderFields: \(String(describing: request.allHTTPHeaderFields))")
-        let stringPrintData = String(NSString(data: request.httpBody ?? Data(),
-                                              encoding: String.Encoding.utf8.rawValue) ?? "")
-        print("*****Request Body: \(stringPrintData)")
+//        print("**********REQUEST**********")
+//        print("*****Request URL: \(request)")
+//        print("*****Request HeaderFields: \(String(describing: request.allHTTPHeaderFields))")
+//        let stringPrintData = String(NSString(data: request.httpBody ?? Data(),
+//                                              encoding: String.Encoding.utf8.rawValue) ?? "")
+//        print("*****Request Body: \(stringPrintData)")
     }
 
     func printerNetworkDebugResponse(response: HTTPURLResponse, data: Data, error: Error) {
-        print("*****Response*****")
-        print("*****Response http: \(response)")
-        print("*****Response error: \(String(describing: error))")
-        print(String(NSString(data: data ,
-                                                        encoding: String.Encoding.utf8.rawValue) ?? ""))
+//        print("*****Response*****")
+//        print("*****Response http: \(response)")
+//        print("*****Response error: \(String(describing: error))")
+//        print(String(NSString(data: data ,
+//                                                        encoding: String.Encoding.utf8.rawValue) ?? ""))
     }
 }
 

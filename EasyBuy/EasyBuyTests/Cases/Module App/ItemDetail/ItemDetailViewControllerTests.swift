@@ -3,7 +3,6 @@
 //  EasyBuy
 //
 //  Created by Andres Felipe Nunez on 17/05/21.
-//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 //
 
@@ -31,6 +30,7 @@ class ItemDetailViewControllerTests: XCTestCase{
     override func tearDown(){
         window = nil
         sut = nil
+        XCUIDevice.shared.orientation = UIDeviceOrientation.portrait;
         super.tearDown()
     }
     
@@ -90,6 +90,19 @@ class ItemDetailViewControllerTests: XCTestCase{
         XCTAssertEqual(cell.nameItem.text, "Pijama Para Carro En Algodón Impermeable Talla L", "viewDidLoad() should ask the interactor to do something")
     }
     
+    func test_displayInitialInformationLandScape_whenSucces(){
+        // Given
+        loadView()
+        getLoadInitalData()
+        // When
+        XCUIDevice.shared.orientation = UIDeviceOrientation.landscapeRight;
+        sut.displayInitialInformation(viewModel: viewModelLoadInitalData)
+        guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 0, section: 0)) as? InformationItemTableViewCell else{XCTFail("Invalid alertViewController"); return}
+        
+        // Then
+        XCTAssertEqual(cell.nameItem.text, "Pijama Para Carro En Algodón Impermeable Talla L", "viewDidLoad() should ask the interactor to do something")
+    }
+    
     
     func test_displayInitialInformationHeaderInformation_whenSucces(){
         // Given
@@ -101,7 +114,7 @@ class ItemDetailViewControllerTests: XCTestCase{
         guard let cell = sut.tableDetailItem.dataSource?.tableView(sut.tableDetailItem, cellForRowAt: IndexPath(row: 1, section: 0)) as? HeaderInformationItemTableViewCell else{XCTFail("Invalid alertViewController"); return}
         
         // Then
-        XCTAssertEqual(cell.title.text, "Information about the seller", "test_displayInitialInformationHeaderInformation_whenSucces should ask the interactor to do something")
+        XCTAssertEqual(cell.title.text, NSLocalizedString("itemDetail.label.headerSellerInformation", comment: ""), "test_displayInitialInformationHeaderInformation_whenSucces should ask the interactor to do something")
     }
     
     func test_displayInitialInformationOnlyText_whenSucces(){
