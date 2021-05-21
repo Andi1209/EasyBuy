@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  EasyBuy
+
+  Created by Andres Felipe Nunez on 13/05/21.
+  
+*/
+////========================GENERAL TEXT=============================///////
+"barTitle.label.itemdetail" = "Product Detail";
+
+
+////========================ListToItems========================///////
+"listToItems.label.errorCategorias" = "Categories not available";
+
+
+////========================ItemDetail========================///////
+"itemDetail.label.headerSellerInformation" = "Information about the seller";
+"itemDetail.label.headerFeatureInformation" = "Features";
+
+
+
+
+////========================Error Service=============================////////
+"service.error.errorGeneralResponse" = "Your request could not be processed.\n\nPlease try again later.";
+"service.error.errorNetworkConexion" = "Check your internet connection and try again.";
+"service.error.noData" = "No items were found, please try again.";
+
+
