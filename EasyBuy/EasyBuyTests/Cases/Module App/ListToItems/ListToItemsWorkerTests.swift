@@ -65,7 +65,7 @@ class ListToItemsWorkerTests: XCTestCase{
             exp.fulfill()
         }
         // Then
-        wait(for: [exp], timeout: 20)
+        wait(for: [exp], timeout: 30)
         XCTAssertEqual(statusCode, 200, "the request or service is not rigth")
         XCTAssertTrue(searchResult!.isSuccess)
     }
